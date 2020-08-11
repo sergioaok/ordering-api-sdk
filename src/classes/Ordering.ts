@@ -73,14 +73,12 @@ export class Ordering {
     return new ApiValidationField(this, fieldId)
   }
 
-
+  languages (languageId: number) {
+    return new ApiLanguage(this, languageId)
+  }
 
   system () {
     return new ApiSystem(this)
-  }
-
-  languages () {
-    return new ApiLanguage(this)
   }
 
   getRequestProps (options: RequestOptionsProps): [string, AxiosRequestConfig] {

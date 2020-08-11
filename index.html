@@ -202,6 +202,22 @@
       // const updateValidationFieldsResponse = await ordering.validationFields(field.id).save({ name: 'Name' })
       // console.log('Update field: ', updateValidationFieldsResponse.content)
 
+      // Languages
+      // const getLanguagesResponse = await ordering.languages().get()
+      // console.log('Languages: ', getLanguagesResponse.content)
+
+      // const findOneLanguageResponse = await ordering.languages(getLanguagesResponse.content.result[0].id).get()
+      // console.log('Language by id: ', findOneLanguageResponse.content)
+
+      // const language = findOneLanguageResponse.content.result
+
+      // language.name = 'English SDK'
+      // const saveLanguageResponse = await language.save()
+      // console.log('Save new name', saveLanguageResponse)
+
+      // const updateLanguageResponse = await ordering.languages(language.id).save({ name: 'English' })
+      // console.log('Update language: ', updateLanguageResponse.content)
+
       // Logout
       const logoutResponse = await ordering.users(user.id).logout()
       !logoutResponse.content.error && console.log("Logout successful!")

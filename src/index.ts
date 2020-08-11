@@ -7,6 +7,12 @@ import { Address, AddressProps } from './models/Address'
 import { ApiAddress } from './classes/ApiAddress'
 import { Order, OrderProps } from './models/Order'
 import { ApiOrder } from './classes/ApiOrder'
+import { Business, BusinessProps } from './models/Business'
+import { ApiBusiness } from './classes/ApiBusiness'
+import { ValidationField, ValidationFieldProps } from './models/ValidationField'
+import { ApiValidationField } from './classes/ApiValidationField'
+import { Language, LanguageProps } from './models/Language'
+import { ApiLanguage } from './classes/ApiLanguage'
 
 export {
   Ordering,
@@ -16,6 +22,9 @@ export {
   ApiUser,
   ApiAddress,
   ApiOrder,
+  ApiBusiness,
+  ApiValidationField,
+  ApiLanguage,
   // Models
   Model,
   User,
@@ -23,5 +32,11 @@ export {
   Address,
   AddressProps,
   Order,
-  OrderProps
+  OrderProps,
+  Business,
+  BusinessProps,
+  ValidationField,
+  ValidationFieldProps,
+  Language,
+  LanguageProps
 }
