@@ -182,6 +182,26 @@
       // const validateCartResponse = await ordering.businesses(business.id).validateCart({ type: 1, products: [1,2,3] })
       // console.log('Validate cart business', validateCartResponse.content)
 
+      // Validation fields
+      // const getValidationFieldsResponse = await ordering.validationFields().get()
+      // console.log('Validation fields: ', getValidationFieldsResponse.content)
+
+      // const getValidationFieldsAddressResponse = await ordering.validationFields().toAddress().asDictionary().get()
+      // console.log('Validation fields address: ', getValidationFieldsAddressResponse.content)
+
+      // const findOneValidationFieldsResponse = await ordering.validationFields(getValidationFieldsResponse.content.result[0].id).get()
+      // console.log('Validation fields: ', findOneValidationFieldsResponse.content)
+
+      // const field = findOneValidationFieldsResponse.content.result
+      // console.log(field.name)
+
+      // field.name = 'Name sdk'
+      // const saveValidationFieldResponse = await field.save()
+      // console.log('Save new name', saveValidationFieldResponse)
+
+      // const updateValidationFieldsResponse = await ordering.validationFields(field.id).save({ name: 'Name' })
+      // console.log('Update field: ', updateValidationFieldsResponse.content)
+
       // Logout
       const logoutResponse = await ordering.users(user.id).logout()
       !logoutResponse.content.error && console.log("Logout successful!")

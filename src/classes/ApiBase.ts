@@ -22,6 +22,7 @@ export class ApiBase {
   public ordering: Ordering
   public attributes: string[] = []
   public conditions: ConditionInterface[] = []
+  public query: any = {}
   public mode: string
 
   constructor (ordering: Ordering) {
@@ -42,7 +43,7 @@ export class ApiBase {
    * @param conditions List of conditions
    */
   public where (conditions: ConditionInterface[]) {
-    this.conditions = conditions
+    this.conditions = this.conditions.concat(conditions)
     return this
   }
 

@@ -69,6 +69,10 @@ export class Ordering {
     return new ApiBusiness(this, businessId)
   }
 
+  validationFields (fieldId: number) {
+    return new ApiValidationField(this, fieldId)
+  }
+
 
 
   system () {
@@ -77,10 +81,6 @@ export class Ordering {
 
   languages () {
     return new ApiLanguage(this)
-  }
-
-  validationFields () {
-    return new ApiValidationField(this)
   }
 
   getRequestProps (options: RequestOptionsProps): [string, AxiosRequestConfig] {
