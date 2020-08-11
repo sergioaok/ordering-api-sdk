@@ -13,6 +13,8 @@ import { ValidationField, ValidationFieldProps } from './models/ValidationField'
 import { ApiValidationField } from './classes/ApiValidationField'
 import { Language, LanguageProps } from './models/Language'
 import { ApiLanguage } from './classes/ApiLanguage'
+import { Translation, TranslationProps } from './models/Translation'
+import { ApiTranslation } from './classes/ApiTranslation'
 
 export {
   Ordering,
@@ -25,6 +27,7 @@ export {
   ApiBusiness,
   ApiValidationField,
   ApiLanguage,
+  ApiTranslation,
   // Models
   Model,
   User,
@@ -38,5 +41,7 @@ export {
   ValidationField,
   ValidationFieldProps,
   Language,
-  LanguageProps
+  LanguageProps,
+  Translation,
+  TranslationProps
 }

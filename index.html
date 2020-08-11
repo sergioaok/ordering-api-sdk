@@ -218,6 +218,25 @@
       // const updateLanguageResponse = await ordering.languages(language.id).save({ name: 'English' })
       // console.log('Update language: ', updateLanguageResponse.content)
 
+      // Translations
+      // const getTranslationsResponse = await ordering.translations().get()
+      // console.log('Translations: ', getTranslationsResponse.content)
+
+      // const getDictionaryTranslationsResponse = await ordering.translations().asDictionary().get()
+      // console.log('Translations Dictionary: ', getDictionaryTranslationsResponse.content)
+
+      // const findOneTranslateResponse = await ordering.translations(getTranslationsResponse.content.result[0].id).get()
+      // console.log('Translate by id: ', findOneTranslateResponse.content)
+
+      // const translate = findOneTranslateResponse.content.result
+
+      // translate.text = 'e-mail SDK'
+      // const saveTranslateResponse = await translate.save()
+      // console.log('Save new text', saveTranslateResponse)
+
+      // const updateTranslateResponse = await ordering.translations(translate.id).save({ text: 'e-mail' })
+      // console.log('Update translate: ', updateTranslateResponse.content)
+
       // Logout
       const logoutResponse = await ordering.users(user.id).logout()
       !logoutResponse.content.error && console.log("Logout successful!")

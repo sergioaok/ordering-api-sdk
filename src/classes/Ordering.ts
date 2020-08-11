@@ -9,6 +9,7 @@ import { ApiBusiness } from './ApiBusiness'
 
 import axios, { AxiosRequestConfig } from 'axios'
 import { ApiConfig } from './ApiConfig'
+import { ApiTranslation } from './ApiTranslation'
 
 interface SettingProps {
   url?: string
@@ -75,6 +76,10 @@ export class Ordering {
 
   languages (languageId: number) {
     return new ApiLanguage(this, languageId)
+  }
+
+  translations (translationId: number) {
+    return new ApiTranslation(this, translationId)
   }
 
   system () {
