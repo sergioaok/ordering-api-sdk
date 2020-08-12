@@ -1,4 +1,4 @@
-import { Model } from './Model'
+import { Model, ModelProps } from './Model'
 import { TypeApi } from '../types'
 
 export interface OrderProps {
@@ -37,9 +37,10 @@ export interface OrderProps {
   business?: object
   products?: Array<object>
   customer?: object
+  [metadata: string]: any
 }
 
-export class Order extends Model {
+export class Order extends Model implements ModelProps {
   public id: number
   public paymethod_id: number
   public business_id: number
@@ -75,44 +76,20 @@ export class Order extends Model {
   public business: object
   public products: Array<object>
   public customer: object
+  [metadata: string]: any
 
   constructor (order: OrderProps = {}, api: TypeApi) {
     super(order, api, ['customer', 'business'])
-    this.id = order.id
-    this.paymethod_id = order.paymethod_id
-    this.business_id = order.business_id
-    this.customer_id = order.customer_id
-    this.delivery_type = order.delivery_type
-    this.delivery_datetime = order.delivery_datetime
-    this.service_fee = order.service_fee
-    this.tax_type = order.tax_type
-    this.tax = order.tax
-    this.delivery_zone_price = order.delivery_zone_price
-    this.offer = order.offer
-    this.offer_type = order.offer_type
-    this.offer_rate = order.offer_rate
-    this.discount = order.discount
-    this.coupon = order.coupon
-    this.status = order.status
-    this.comment = order.comment
-    this.driver_id = order.driver_id
-    this.driver_tip = order.driver_tip
-    this.pay_data = order.pay_data
-    this.refund_data = order.refund_data
-    this.to_print = order.to_print
-    this.language_id = order.language_id
-    this.app_id = order.app_id
-    this.cash = order.cash
-    this.delivery_zone_id = order.delivery_zone_id
-    this.locked = order.locked
-    this.order_group_id = order.order_group_id
-    this.logistic_status = order.logistic_status
-    this.created_at = order.created_at
-    this.updated_at = order.updated_at
-    this.offer_id = order.offer_id
-    this.business = order.business
-    this.products = order.products
-    this.customer = order.customer
+    Object.entries(order).map(([key, value]) => {
+      this[key] = value
+    })
+  }
+
+  /**
+   * Get indentifier of model
+   */
+  getId () {
+    return this.id
   }
 
   get subtotal () {

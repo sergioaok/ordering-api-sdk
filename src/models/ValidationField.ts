@@ -1,4 +1,4 @@
-import { Model } from './Model'
+import { Model, ModelProps } from './Model'
 import { TypeApi } from '../types'
 
 export interface ValidationFieldProps {
@@ -9,9 +9,10 @@ export interface ValidationFieldProps {
   type?: string
   required?: boolean
   enabled?: boolean
+  [metadata: string]: any
 }
 
-export class ValidationField extends Model {
+export class ValidationField extends Model implements ModelProps {
   public id: number
   public name: string
   public code: string
@@ -19,15 +20,19 @@ export class ValidationField extends Model {
   public type: string
   public required: boolean
   public enabled: boolean
+  [metadata: string]: any
 
   constructor (field: ValidationFieldProps = {}, api: TypeApi) {
     super(field, api)
-    this.id = field.id
-    this.name = field.name
-    this.code = field.code
-    this.validate = field.validate
-    this.type = field.type
-    this.required = field.required
-    this.enabled = field.enabled
+    Object.entries(field).map(([key, value]) => {
+      this[key] = value
+    })
+  }
+
+  /**
+   * Get indentifier of model
+   */
+  getId () {
+    return this.id
   }
 }

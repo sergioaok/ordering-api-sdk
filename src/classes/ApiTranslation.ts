@@ -13,6 +13,14 @@ export class ApiTranslation extends ApiBase implements ApiBaseInterface {
   }
 
   /**
+   * Replace current modelId
+   * @param id ID to replace current api modelId
+   */
+  setModelId (id: number) {
+    this.translationId = id
+  }
+
+  /**
    * Get a translation if translationId is set else get all
    * @param {RequestOptionsProps} options Params, headers and other options
    */

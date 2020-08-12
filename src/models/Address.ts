@@ -1,4 +1,4 @@
-import { Model } from './Model'
+import { Model, ModelProps } from './Model'
 import { TypeApi } from '../types'
 
 export interface AddressProps {
@@ -18,9 +18,10 @@ export interface AddressProps {
   tag?: string
   map_data?: object
   default?: boolean
+  [metadata: string]: any
 }
 
-export class Address extends Model {
+export class Address extends Model implements ModelProps {
   public id: number
   public user_id: number
   public name: string
@@ -37,25 +38,20 @@ export class Address extends Model {
   public tag: string
   public map_data: object
   public default: boolean
+  [metadata: string]: any
 
   // Use name 'address' because has 'default' attribute and is a javascript keyword
   constructor (address: AddressProps = {}, api: TypeApi) {
     super(address, api, [])
-    this.id = address.id
-    this.user_id = address.user_id
-    this.name = address.name
-    this.middle_name = address.middle_name
-    this.lastname = address.lastname
-    this.second_lastname = address.second_lastname
-    this.address = address.address
-    this.address_notes = address.address_notes
-    this.internal_number = address.internal_number
-    this.phone = address.phone
-    this.cellphone = address.cellphone
-    this.zipcode = address.zipcode
-    this.location = address.location
-    this.tag = address.tag
-    this.map_data = address.map_data
-    this.default = address.default
+    Object.entries(address).map(([key, value]) => {
+      this[key] = value
+    })
+  }
+
+  /**
+   * Get indentifier of model
+   */
+  getId () {
+    return this.id
   }
 }

@@ -16,6 +16,14 @@ export class ApiOrder extends ApiBase implements ApiBaseInterface {
   }
 
   /**
+   * Replace current modelId
+   * @param id ID to replace current api modelId
+   */
+  setModelId (id: number) {
+    this.orderId = id
+  }
+
+  /**
    * Get an order if orderId is set else get all
    * @param {RequestOptionsProps} options Params, headers and other options
    */

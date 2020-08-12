@@ -25,6 +25,7 @@
       const { content } = await ordering.users().auth({ email: 'superadmin@ordering.co', password: 'super' })
       !content.error && console.log("Login successful!")
       const user = content.result
+      // console.log(user)
 
       /**
        * You can use:
@@ -164,6 +165,18 @@
       // const getBusinessesDashboard = await ordering.businesses().asDashboard().get()
       // console.log('Business Dashboard: ', getBusinessesDashboard.content)
 
+      // const getBusinessesCustomerResponse = await ordering.businesses().select(['name', 'slug', 'logo', 'header', 'location', 'description', 'food', 'alcohol', 'groceries', 'laundry', 'zones', 'delivery_price', 'minimum', 'schedule', 'featured', 'reviews', 'about', 'delivery_time', 'pickup_time', 'offers']).parameters({
+      //   type: 1,
+      //   location: '40.7539143,-73.9810162'
+      // }).get()
+      // console.log('Business Customer: ', getBusinessesCustomerResponse.content)
+
+      // const findOneBusinessesCustomerResponse = await ordering.businesses(41).select(['name', 'slug', 'logo', 'header', 'location', 'description', 'food', 'alcohol', 'groceries', 'laundry', 'zones', 'delivery_price', 'minimum', 'schedule', 'featured', 'reviews', 'about', 'delivery_time', 'pickup_time', 'offers']).parameters({
+      //   type: 1,
+      //   location: '40.7539143,-73.9810162'
+      // }).get()
+      // console.log('Business Customer: ', findOneBusinessesCustomerResponse.content)
+
       // const findOneSlugDashboard = await ordering.businesses(getBusinessesDashboard.content.result[0].slug).get()
       // console.log('Business by slug: ', findOneSlugDashboard.content)
 
@@ -190,7 +203,7 @@
       // console.log('Validation fields address: ', getValidationFieldsAddressResponse.content)
 
       // const findOneValidationFieldsResponse = await ordering.validationFields(getValidationFieldsResponse.content.result[0].id).get()
-      // console.log('Validation fields: ', findOneValidationFieldsResponse.content)
+      // console.log('Validation field by id: ', findOneValidationFieldsResponse.content)
 
       // const field = findOneValidationFieldsResponse.content.result
       // console.log(field.name)
@@ -205,6 +218,13 @@
       // Languages
       // const getLanguagesResponse = await ordering.languages().get()
       // console.log('Languages: ', getLanguagesResponse.content)
+
+      // const languageOfList = getLanguagesResponse.content.result[0]
+
+      // languageOfList.name = 'English SDK 1'
+      // const saveLanguageOfListResponse = await languageOfList.save()
+      // console.log('Save new name', saveLanguageOfListResponse)
+
 
       // const findOneLanguageResponse = await ordering.languages(getLanguagesResponse.content.result[0].id).get()
       // console.log('Language by id: ', findOneLanguageResponse.content)

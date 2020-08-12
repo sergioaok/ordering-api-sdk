@@ -3,6 +3,7 @@ import { RequestOptionsProps } from '../interfaces/RequestOptionsProps'
 import { Ordering } from './Ordering'
 
 export interface ApiBaseInterface {
+  setModelId(id: number): void
   get(options?: RequestOptionsProps): Promise<ApiResponse>
   save(changes: any, options?: RequestOptionsProps): Promise<ApiResponse>
   delete(options?: RequestOptionsProps): Promise<ApiResponse>
@@ -73,6 +74,14 @@ export class ApiBase {
   }
 
   /**
+   * Change request mode to dashboard
+   */
+  public parameters (parameters: any) {
+    this.query = Object.assign(this.query, parameters)
+    return this
+  }
+
+  /**
    * Make request by options
    * @param method HTTP method
    */
@@ -83,10 +92,13 @@ export class ApiBase {
       _options.conditions = this.conditions
       _options.mode = this.mode
 
+      if (!_options.query) {
+        _options.query = {}
+      }
+
+      Object.assign(_options.query, this.query)
+
       if (data) {
-        if (!_options.query) {
-          _options.query = {}
-        }
         for (const key in data) {
           _options.query[key] = data[key]
         }

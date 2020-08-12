@@ -16,6 +16,14 @@ export class ApiConfig extends ApiBase implements ApiBaseInterface {
   }
 
   /**
+   * Replace current modelId
+   * @param id ID to replace current api modelId
+   */
+  setModelId (id: number) {
+    this.configId = id
+  }
+
+  /**
    * Get a config if configId is set else get all
    * @param {RequestOptionsProps} options Params, headers and other options
    */

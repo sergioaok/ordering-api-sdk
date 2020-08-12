@@ -1,21 +1,30 @@
-import { Model } from './Model'
+import { Model, ModelProps } from './Model'
 import { TypeApi } from '../types'
 
 export interface ConfigProps {
   id?: number
   key?: string
   value?: string
+  [metadata: string]: any
 }
 
-export class Config extends Model {
+export class Config extends Model implements ModelProps {
   public id: number
   public key: string
   public value: string
+  [metadata: string]: any
 
   constructor (config: ConfigProps = {}, api: TypeApi) {
     super(config, api)
-    this.id = config.id
-    this.key = config.key
-    this.value = config.value
+    Object.entries(config).map(([key, value]) => {
+      this[key] = value
+    })
+  }
+
+  /**
+   * Get indentifier of model
+   */
+  getId () {
+    return this.id
   }
 }

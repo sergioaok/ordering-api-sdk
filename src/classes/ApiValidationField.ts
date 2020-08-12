@@ -12,6 +12,14 @@ export class ApiValidationField extends ApiBase implements ApiBaseInterface {
   }
 
   /**
+   * Replace current modelId
+   * @param id ID to replace current api modelId
+   */
+  setModelId (id: number) {
+    this.fieldId = id
+  }
+
+  /**
    * Get a validation field if fieldId is set else get all
    * @param {RequestOptionsProps} options Params, headers and other options
    */

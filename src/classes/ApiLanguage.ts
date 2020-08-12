@@ -13,6 +13,14 @@ export class ApiLanguage extends ApiBase implements ApiBaseInterface {
   }
 
   /**
+   * Replace current modelId
+   * @param id ID to replace current api modelId
+   */
+  setModelId (id: number) {
+    this.languageId = id
+  }
+
+  /**
    * Get a language if languageId is set else get all
    * @param {RequestOptionsProps} options Params, headers and other options
    */

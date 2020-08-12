@@ -1,4 +1,4 @@
-import { Model } from './Model'
+import { Model, ModelProps } from './Model'
 import { Address } from './Address'
 import { TypeApi } from '../types'
 
@@ -50,9 +50,10 @@ export interface UserProps {
   enabled?: boolean
   session?: Session
   addresses?: Address[]
+  [metadata: string]: any
 }
 
-export class User extends Model {
+export class User extends Model implements ModelProps {
   public id: number
   public name: string
   public middle_name: string
@@ -82,37 +83,13 @@ export class User extends Model {
   public enabled: boolean
   public addresses: Address[]
   public session: Session
+  [metadata: string]: any
 
   constructor (user: UserProps = {}, api: TypeApi) {
     super(user, api, ['session', 'addresses'])
-    this.id = user.id
-    this.name = user.name
-    this.middle_name = user.middle_name
-    this.lastname = user.lastname
-    this.second_lastname = user.second_lastname
-    this.email = user.email
-    this.password = user.password
-    this.login_type = user.login_type
-    this.social_id = user.social_id
-    this.photo = user.photo
-    this.birthdate = user.birthdate
-    this.phone = user.phone
-    this.cellphone = user.cellphone
-    this.country_phone_code = user.country_phone_code
-    this.city_id = user.city_id
-    this.dropdown_option_id = user.dropdown_option_id
-    this.address = user.address
-    this.address_notes = user.address_notes
-    this.zipcode = user.zipcode
-    this.location = user.location
-    this.push_notifications = user.push_notifications
-    this.level = user.level
-    this.language_id = user.language_id
-    this.busy = user.busy
-    this.available = user.available
-    this.map_data = user.map_data
-    this.enabled = user.enabled
-    this.addresses = user.addresses || []
+    Object.entries(user).map(([key, value]) => {
+      this[key] = value
+    })
     if (user.session) {
       this.session = new Session(user.session)
     }
@@ -136,5 +113,12 @@ export class User extends Model {
 
   public getAccessToken () {
     return this.session?.access_token
+  }
+
+  /**
+   * Get indentifier of model
+   */
+  getId () {
+    return this.id
   }
 }

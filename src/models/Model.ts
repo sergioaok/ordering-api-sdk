@@ -1,5 +1,9 @@
 import { TypeApi } from '../types'
 
+export interface ModelProps {
+  getId(): number | string
+}
+
 export class Model {
   private original: any
   private api: TypeApi
@@ -16,7 +20,13 @@ export class Model {
     this.api = api
   }
 
+  getId (): number {
+    return undefined
+  }
+
   async save () {
+    // console.log(this.getId())
+    this.api.setModelId(this.getId())
     if (!this.api) {
       throw new Error('You must provide the `api` to use `save` function. Example: const newModel = new Model(model, api) or newModel.setApi(api)')
     }
