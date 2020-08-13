@@ -1,0 +1,34 @@
+import { ApiResponse } from './ApiResponse';
+import { Ordering } from './Ordering';
+import { RequestOptionsProps } from '../interfaces/RequestOptionsProps';
+import { ApiBase, ApiBaseInterface } from './ApiBase';
+import { BusinessProps } from '../models/Business';
+/**
+ * Class to configs api control
+ */
+export declare class ApiBusiness extends ApiBase implements ApiBaseInterface {
+    private businessId;
+    constructor(ordering: Ordering, businessId: number | string);
+    /**
+     * Replace current modelId
+     * @param id ID to replace current api modelId
+     */
+    setModelId(id: number): void;
+    /**
+     * Get a business if businessId is set else get all
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    get(options?: RequestOptionsProps): Promise<ApiResponse>;
+    /**
+     * Update a business if configId is set else create business
+     * @param {BusinessProps} business Attributes to create or update business
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    save(business: BusinessProps, options?: RequestOptionsProps): Promise<ApiResponse>;
+    /**
+     * Delete a business by configId
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    delete(options?: RequestOptionsProps): Promise<ApiResponse>;
+    validateCart(cart: any, options?: RequestOptionsProps): Promise<ApiResponse>;
+}

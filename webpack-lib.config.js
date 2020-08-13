@@ -8,6 +8,10 @@ const PATHS = {
 
 module.exports = {
   // entry: './src/index.ts',
+  entry: {
+    'my-lib': [PATHS.entryPoint],
+    'my-lib.min': [PATHS.entryPoint]
+  },
   // output: {
   //   path: path.resolve(__dirname, 'dist'),
   //   filename: 'ordering-api-sdk.js',
@@ -16,25 +20,14 @@ module.exports = {
   //   libraryTarget: 'umd',
   //   globalObject: 'this',
   // },
-  entry: {
-    'ordering-sdk': [PATHS.entryPoint],
-    'ordering-sdk.min': [PATHS.entryPoint]
-  },
   output: {
-    path: PATHS.bundles,
-    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'ordering-api-sdk.min.js',
+    library: '',
+    libraryExport: '',
     libraryTarget: 'umd',
-    library: 'Ordering',
-    umdNamedDefine: true
+    globalObject: 'this',
   },
-  // output: {
-  //   path: path.resolve(__dirname, 'dist'),
-  //   filename: 'ordering-api-sdk.js',
-  //   library: '',
-  //   libraryExport: '',
-  //   libraryTarget: 'umd',
-  //   globalObject: 'this'
-  // },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     filename: 'ordering-api-sdk.js',
@@ -54,18 +47,18 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /(node_modules|bower_components)/
-      }
+        exclude: /(node_modules|bower_components)/,
+      },
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: [ '.tsx', '.ts', '.js' ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'ordering-api-sdk',
       template: 'index.html',
       inject: false
-    })
+    }),
   ]
 }
