@@ -2,14 +2,12 @@
   "name": "ordering-api-sdk",
   "version": "0.0.1",
   "description": "Ordering API sdk",
-  "main": "dist/index.js",
-  "types": "index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "build": "npx webpack --mode=production",
-    "build-dev": "npx webpack --mode=development",
-    "serve": "npx webpack-dev-server",
     "clean": "shx rm -rf _bundles lib lib-esm",
-    "buildts": "npm run clean && tsc && tsc -m es6 --outDir lib-esm && webpack --mode=production",
+    "build": "npm run clean && tsc && tsc -m es6 --outDir lib-esm && webpack --mode=production",
+    "serve": "npx webpack-dev-server",
     "lint": "npx standardx **/*.ts",
     "lint-fix": "npx standardx --fix **/*.ts"
   },
