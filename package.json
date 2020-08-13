@@ -1,12 +1,15 @@
 {
   "name": "ordering-api-sdk",
-  "version": "1.0.0",
-  "description": "Ordering Inc API sdk",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Ordering API sdk",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "npx webpack --mode=production",
     "build-dev": "npx webpack --mode=development",
     "serve": "npx webpack-dev-server",
+    "clean": "shx rm -rf _bundles lib lib-esm",
+    "buildts": "npm run clean && tsc && tsc -m es6 --outDir lib-esm && webpack --mode=production",
     "lint": "npx standardx **/*.ts",
     "lint-fix": "npx standardx --fix **/*.ts"
   },
@@ -24,10 +27,11 @@
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.1.0",
     "html-webpack-plugin": "^4.3.0",
+    "shx": "^0.3.2",
     "standardx": "^5.0.0",
     "terser-webpack-plugin": "^3.0.7",
     "ts-loader": "^8.0.0",
-    "typescript": "^3.9.6",
+    "typescript": "^3.9.7",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"

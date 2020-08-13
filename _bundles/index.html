@@ -1,0 +1,254 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Document</title></head><body><script src="ordering-sdk.js"></script><script src="ordering-sdk.min.js"></script><script>const ordering = new Ordering({
+      url: 'http://localhost:8080',
+      version: 'v400',
+      project: 'development',
+      language: 'en',
+      // accessToken: 'ACCESS_TOKEN',
+      // apiKey: 'API_KEY'
+    })
+
+    const init = async (ordering) => {
+      // let { content } = await ordering.users().save({ name: 'test', email: 'test@ordering.co', password: '1234567890' })
+      // console.log(content)
+
+      const { content } = await ordering.users().auth({ email: 'superadmin@ordering.co', password: 'super' })
+      !content.error && console.log("Login successful!")
+      const user = content.result
+      // console.log(user)
+
+      /**
+       * You can use:
+       * ordering.setAccessToken().otherApi()
+       * or 
+       * ordering.setAccessToken();
+       * ordering.otherApi()
+       */
+
+      ordering.setAccessToken(user.getAccessToken())
+
+      // Users
+
+      // user.name = 'Super';
+      // const saveUserResponse = await user.save()
+      // console.log('Save name to Super', saveUserResponse)
+
+      // user.name = 'Admin';
+      // const saveUser2Response = await user.save()
+      // console.log('Save name to Admin', saveUser2Response)
+
+      // const findOneUserResponse = await ordering.users(user.id).select(['name', 'lastname', 'email', 'addresses']).get()
+      // console.log('Get user by id', findOneUserResponse.content)
+
+      // if (user.isAdministrator()) {
+      //   const conditions = [
+      //     {
+      //       attribute: 'level',
+      //       value: 4
+      //     },
+      //     {
+      //       attribute: 'available',
+      //       value: {
+      //         condition: '=',
+      //         value: false
+      //       }
+      //     }
+      //   ]
+      //   const findAllUserResponse = await ordering.users().select(['name', 'lastname', 'email', 'addresses', 'available']).where(conditions).asDashboard().get()
+      //   console.log('Get users', findAllUserResponse.content)
+  
+      //   const updateUserResponse = await ordering.users(user.id).save({ phone: Date.now() })
+      //   console.log('Update user', updateUserResponse.content)
+      // }
+
+      // Addresses
+      // const getAddressesResponse = await ordering.users(user.id).addresses().get()
+      // console.log(`Addresses of users ${user.id}:`, getAddressesResponse.content)
+
+      // const findOneAddressResponse = await ordering.users(user.id).addresses(getAddressesResponse.content.result[0].id).get()
+      // console.log(`Address by id ${getAddressesResponse.content.result[0].id}:`, findOneAddressResponse.content)
+
+      // const address = findOneAddressResponse.content.result
+
+      // address.address_notes = 'Edit address notes 1'
+      // const saveUserResponse = await address.save()
+      // console.log('Save new address_notes 1', saveUserResponse)
+
+      // address.address_notes = 'Edit address notes 2'
+      // const saveUser2Response = await address.save()
+      // console.log('Save new address_notes 2', saveUser2Response)
+
+      // const updateAddressResponse = await ordering.users(user.id).addresses(address.id).save({ address_notes: 'Edit address notes 3' })
+      // console.log('Update address', updateAddressResponse.content)
+
+      // const addressConditions = [
+      //   {
+      //     attribute: 'default',
+      //     value: false
+      //   }
+      // ]
+      
+      // const getFilterAddressesResponse = await ordering.users(user.id).addresses().where(addressConditions).get()
+      // console.log(`Addresses filter of users ${user.id}:`, getFilterAddressesResponse.content)
+      
+      // Orders
+      // const getOrdersResponse = await ordering.orders().get()
+      // console.log('My orders: ', getOrdersResponse.content)
+
+      // const findOneOrderResponse = await ordering.orders(getOrdersResponse.content.result[0].id).get()
+      // console.log('Order by id:', findOneOrderResponse.content)
+      // const order = findOneOrderResponse.content.result
+
+      // order.comment = 'Edit comment 1'
+      // const saveOrderResponse = await order.save()
+      // console.log('Save new comment 1', saveOrderResponse)
+
+      // order.comment = 'Edit comment 2'
+      // const saveOrder2Response = await order.save()
+      // console.log('Save new comment 2', saveOrder2Response)
+
+      // const updateOrderResponse = await ordering.orders(order.id).save({ comment: 'Edit comment 3' })
+      // console.log('Update order', updateOrderResponse.content)
+
+      // const getOrdersDashboardResponse = await ordering.orders().asDashboard().get()
+      // console.log('All orders: ', getOrdersDashboardResponse.content)
+
+      // const orderConditions = [
+      //   {
+      //     attribute: 'status',
+      //     value: 11
+      //   }
+      // ]
+
+      // const getOrdersFilterDashboardResponse = await ordering.orders().where(orderConditions).get()
+      // console.log('All Filter orders: ', getOrdersFilterDashboardResponse.content)
+
+      // Configs
+      // const getConfigsResponse = await ordering.configs().get()
+      // console.log('Configs: ', getConfigsResponse.content)
+
+      // const fingdOneConfigResponse = await ordering.configs(getConfigsResponse.content.result[0].id).get()
+      // console.log('Config by id: ', fingdOneConfigResponse.content)
+
+      // const getConfigsDictionaryResponse = await ordering.configs().asDictionary().get()
+      // console.log('Configs as dictionary: ', getConfigsDictionaryResponse.content)
+
+      // const createConfigResponse = await ordering.configs().save({
+      //   key: 'testsdk',
+      //   value: 'testsdkvalue'
+      // })
+      // console.log('Config created:', createConfigResponse.content)
+      
+      // const config = createConfigResponse.content.result
+
+      // config.value = 'testsdkvalueedit1'
+      // const saveConfigResponse = await config.save()
+      // console.log('Save new value', saveConfigResponse)
+
+      // const updateConfigResponse = await ordering.configs(config.id).save({ value: 'testsdkvalueedit2' })
+      // console.log('Update config', updateConfigResponse.content)
+
+      // const deleteConfigsResponse = await ordering.configs(config.id).delete()
+      // console.log(`Config ${config.id} removed: `, deleteConfigsResponse.content)
+
+      // Businesses
+      // const getBusinessesDashboard = await ordering.businesses().asDashboard().get()
+      // console.log('Business Dashboard: ', getBusinessesDashboard.content)
+
+      // const getBusinessesCustomerResponse = await ordering.businesses().select(['name', 'slug', 'logo', 'header', 'location', 'description', 'food', 'alcohol', 'groceries', 'laundry', 'zones', 'delivery_price', 'minimum', 'schedule', 'featured', 'reviews', 'about', 'delivery_time', 'pickup_time', 'offers']).parameters({
+      //   type: 1,
+      //   location: '40.7539143,-73.9810162'
+      // }).get()
+      // console.log('Business Customer: ', getBusinessesCustomerResponse.content)
+
+      // const findOneBusinessesCustomerResponse = await ordering.businesses(41).select(['name', 'slug', 'logo', 'header', 'location', 'description', 'food', 'alcohol', 'groceries', 'laundry', 'zones', 'delivery_price', 'minimum', 'schedule', 'featured', 'reviews', 'about', 'delivery_time', 'pickup_time', 'offers']).parameters({
+      //   type: 1,
+      //   location: '40.7539143,-73.9810162'
+      // }).get()
+      // console.log('Business Customer: ', findOneBusinessesCustomerResponse.content)
+
+      // const findOneSlugDashboard = await ordering.businesses(getBusinessesDashboard.content.result[0].slug).get()
+      // console.log('Business by slug: ', findOneSlugDashboard.content)
+
+      // const findOneIdDashboard = await ordering.businesses(getBusinessesDashboard.content.result[0].id).get()
+      // console.log('Business by id: ', findOneIdDashboard.content)
+
+      // const business = findOneIdDashboard.content.result
+
+      // business.about = 'SDK Edit'
+      // const saveBusinessReponse = await business.save()
+      // console.log('Save new about', saveBusinessReponse)
+
+      // const updateBusinessResponse = await ordering.businesses(business.id).save({ about: 'SDK Edit 2' })
+      // console.log('Update business', updateBusinessResponse.content)
+
+      // const validateCartResponse = await ordering.businesses(business.id).validateCart({ type: 1, products: [1,2,3] })
+      // console.log('Validate cart business', validateCartResponse.content)
+
+      // Validation fields
+      // const getValidationFieldsResponse = await ordering.validationFields().get()
+      // console.log('Validation fields: ', getValidationFieldsResponse.content)
+
+      // const getValidationFieldsAddressResponse = await ordering.validationFields().toAddress().asDictionary().get()
+      // console.log('Validation fields address: ', getValidationFieldsAddressResponse.content)
+
+      // const findOneValidationFieldsResponse = await ordering.validationFields(getValidationFieldsResponse.content.result[0].id).get()
+      // console.log('Validation field by id: ', findOneValidationFieldsResponse.content)
+
+      // const field = findOneValidationFieldsResponse.content.result
+      // console.log(field.name)
+
+      // field.name = 'Name sdk'
+      // const saveValidationFieldResponse = await field.save()
+      // console.log('Save new name', saveValidationFieldResponse)
+
+      // const updateValidationFieldsResponse = await ordering.validationFields(field.id).save({ name: 'Name' })
+      // console.log('Update field: ', updateValidationFieldsResponse.content)
+
+      // Languages
+      // const getLanguagesResponse = await ordering.languages().get()
+      // console.log('Languages: ', getLanguagesResponse.content)
+
+      // const languageOfList = getLanguagesResponse.content.result[0]
+
+      // languageOfList.name = 'English SDK 1'
+      // const saveLanguageOfListResponse = await languageOfList.save()
+      // console.log('Save new name', saveLanguageOfListResponse)
+
+
+      // const findOneLanguageResponse = await ordering.languages(getLanguagesResponse.content.result[0].id).get()
+      // console.log('Language by id: ', findOneLanguageResponse.content)
+
+      // const language = findOneLanguageResponse.content.result
+
+      // language.name = 'English SDK'
+      // const saveLanguageResponse = await language.save()
+      // console.log('Save new name', saveLanguageResponse)
+
+      // const updateLanguageResponse = await ordering.languages(language.id).save({ name: 'English' })
+      // console.log('Update language: ', updateLanguageResponse.content)
+
+      // Translations
+      // const getTranslationsResponse = await ordering.translations().get()
+      // console.log('Translations: ', getTranslationsResponse.content)
+
+      // const getDictionaryTranslationsResponse = await ordering.translations().asDictionary().get()
+      // console.log('Translations Dictionary: ', getDictionaryTranslationsResponse.content)
+
+      // const findOneTranslateResponse = await ordering.translations(getTranslationsResponse.content.result[0].id).get()
+      // console.log('Translate by id: ', findOneTranslateResponse.content)
+
+      // const translate = findOneTranslateResponse.content.result
+
+      // translate.text = 'e-mail SDK'
+      // const saveTranslateResponse = await translate.save()
+      // console.log('Save new text', saveTranslateResponse)
+
+      // const updateTranslateResponse = await ordering.translations(translate.id).save({ text: 'e-mail' })
+      // console.log('Update translate: ', updateTranslateResponse.content)
+
+      // Logout
+      const logoutResponse = await ordering.users(user.id).logout()
+      !logoutResponse.content.error && console.log("Logout successful!")
+    }
+
+    init(ordering)</script></body></html>
