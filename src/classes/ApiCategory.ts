@@ -3,6 +3,7 @@ import { Ordering } from './Ordering'
 import { RequestOptionsProps } from '../interfaces/RequestOptionsProps'
 import { ApiBase, ApiBaseInterface } from './ApiBase'
 import { Category, CategoryProps } from '../models/Category'
+import { ApiProduct } from './ApiProduct'
 
 /**
  * Class to category api control
@@ -75,5 +76,16 @@ export class ApiCategory extends ApiBase implements ApiBaseInterface {
     const url = `/business/${this.businessId}/categories/${this.categoryId}`
     const response: ApiResponse = await this.makeRequest('DELETE', url, undefined, Category, options)
     return response
+  }
+
+  /**
+   * Return products api
+   * @param {number} productId Product id is optional
+   */
+  products (productId: number) {
+    if (!this.categoryId) {
+      throw new Error('`categoryId` is require to use API products. Example: ordering.businesses(businessId).categories(categoryId).products().get()')
+    }
+    return new ApiProduct(this.ordering, this.businessId, this.categoryId, productId)
   }
 }

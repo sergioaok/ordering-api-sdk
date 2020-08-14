@@ -265,8 +265,6 @@
       // console.log('Categories: ', getCategoryResponse.content)
       // const categoryId = getCategoryResponse.content.result[0].id
 
-      // console.log(businessId, categoryId)
-
       // const findOneCategoryResponse = await ordering.businesses(businessId).categories(categoryId).get()
       // console.log('Category: ', findOneCategoryResponse.content)
 
@@ -278,6 +276,29 @@
 
       // const updateCategoryResponse = await ordering.businesses(businessId).categories(categoryId).save({ name: backUpName })
       // console.log('Update category: ', updateCategoryResponse.content)
+
+      // Products
+      // const getBusinessesDashboard = await ordering.businesses().asDashboard().get()
+      // const businessId = getBusinessesDashboard.content.result[0].id
+
+      // const getCategoryResponse = await ordering.businesses(businessId).categories().get()
+      // const categoryId = getCategoryResponse.content.result[0].id
+
+      // const getProductsResponse = await ordering.businesses(businessId).categories(categoryId).products().get()
+      // console.log('Products: ', getProductsResponse.content)
+      // const productId = getProductsResponse.content.result[0].id
+
+      // const findOneProductResponse = await ordering.businesses(businessId).categories(categoryId).products(productId).get()
+      // console.log('Product: ', findOneProductResponse.content)
+
+      // const product = findOneProductResponse.content.result
+      // const backUpName = product.name + ''
+      // product.name = `${product.name} SDK`
+      // const saveProductResponse = await product.save()
+      // console.log('Save new name', saveProductResponse)
+
+      // const updateProductResponse = await ordering.businesses(businessId).categories(categoryId).products(productId).save({ name: backUpName })
+      // console.log('Update product: ', updateProductResponse.content)
 
       // Logout
       const logoutResponse = await ordering.users(user.id).logout()
