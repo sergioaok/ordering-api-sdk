@@ -36,8 +36,8 @@ module.exports = {
   //   globalObject: 'this'
   // },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    filename: 'ordering-api-sdk.js',
+    contentBase: path.join(__dirname, '_bundles'),
+    filename: 'ordering-sdk.min.js',
     compress: true,
     port: 9000,
     open: true

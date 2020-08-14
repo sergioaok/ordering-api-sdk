@@ -9,7 +9,7 @@
 <body>
   <%= htmlWebpackPlugin.tags.bodyTags %>
   <script>
-    const ordering = new Ordering({
+    const ordering = new Ordering.Ordering({
       url: 'http://localhost:8080',
       version: 'v400',
       project: 'development',
@@ -256,6 +256,28 @@
 
       // const updateTranslateResponse = await ordering.translations(translate.id).save({ text: 'e-mail' })
       // console.log('Update translate: ', updateTranslateResponse.content)
+
+      // Categories
+      // const getBusinessesDashboard = await ordering.businesses().asDashboard().get()
+      // const businessId = getBusinessesDashboard.content.result[0].id
+
+      // const getCategoryResponse = await ordering.businesses(businessId).categories().get()
+      // console.log('Categories: ', getCategoryResponse.content)
+      // const categoryId = getCategoryResponse.content.result[0].id
+
+      // console.log(businessId, categoryId)
+
+      // const findOneCategoryResponse = await ordering.businesses(businessId).categories(categoryId).get()
+      // console.log('Category: ', findOneCategoryResponse.content)
+
+      // const category = findOneCategoryResponse.content.result
+      // const backUpName = category.name + ''
+      // category.name = `${category.name} SDK`
+      // const saveCategoryResponse = await category.save()
+      // console.log('Save new name', saveCategoryResponse)
+
+      // const updateCategoryResponse = await ordering.businesses(businessId).categories(categoryId).save({ name: backUpName })
+      // console.log('Update category: ', updateCategoryResponse.content)
 
       // Logout
       const logoutResponse = await ordering.users(user.id).logout()

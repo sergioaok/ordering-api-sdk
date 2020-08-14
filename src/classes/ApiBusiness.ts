@@ -3,6 +3,7 @@ import { Ordering } from './Ordering'
 import { RequestOptionsProps } from '../interfaces/RequestOptionsProps'
 import { ApiBase, ApiBaseInterface } from './ApiBase'
 import { Business, BusinessProps } from '../models/Business'
+import { ApiCategory } from './ApiCategory'
 
 /**
  * Class to configs api control
@@ -75,5 +76,19 @@ export class ApiBusiness extends ApiBase implements ApiBaseInterface {
     const url = `/business/${this.businessId}/validate_cart`
     const response: ApiResponse = await this.makeRequest('GET', url, cart, undefined, options)
     return response
+  }
+
+  /**
+   * Return categories api
+   * @param {number} categoryId Category id is optional
+   */
+  categories (categoryId: number) {
+    if (!this.businessId) {
+      throw new Error('`businessId` is require to use API categories. Example: ordering.businesses(businessId).categories().get()')
+    }
+    if (typeof this.businessId !== 'number') {
+      throw new Error('`businessId` must be a number to use API categories. Example: ordering.businesses(businessId).categories().get()')
+    }
+    return new ApiCategory(this.ordering, this.businessId, categoryId)
   }
 }
