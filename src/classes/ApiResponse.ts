@@ -36,7 +36,9 @@ export class ApiResponse {
           } else if (typeof json === 'object') {
             if (this.options.mode === 'dictionary') {
               for (const key in json.result) {
-                json.result[key] = new this.options.CastClass(json.result[key], this.api)
+                if (typeof json.result[key] === 'object') {
+                  json.result[key] = new this.options.CastClass(json.result[key], this.api)
+                }
               }
             } else {
               json.result = new this.options.CastClass(json.result, this.api)

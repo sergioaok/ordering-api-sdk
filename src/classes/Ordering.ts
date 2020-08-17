@@ -10,6 +10,7 @@ import { ApiBusiness } from './ApiBusiness'
 import axios, { AxiosRequestConfig } from 'axios'
 import { ApiConfig } from './ApiConfig'
 import { ApiTranslation } from './ApiTranslation'
+import { ApiPage } from './ApiPage'
 
 interface SettingProps {
   url?: string
@@ -80,6 +81,10 @@ export class Ordering {
 
   translations (translationId: number) {
     return new ApiTranslation(this, translationId)
+  }
+
+  pages (pageId: number) {
+    return new ApiPage(this, pageId)
   }
 
   system () {
