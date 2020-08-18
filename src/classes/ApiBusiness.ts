@@ -5,6 +5,7 @@ import { ApiBase, ApiBaseInterface } from './ApiBase'
 import { Business, BusinessProps } from '../models/Business'
 import { ApiCategory } from './ApiCategory'
 import { ApiMenu } from './ApiMenu'
+import { Product } from '../models/Product'
 
 /**
  * Class to configs api control
@@ -77,6 +78,25 @@ export class ApiBusiness extends ApiBase implements ApiBaseInterface {
     const url = `/business/${this.businessId}/validate_cart`
     const response: ApiResponse = await this.makeRequest('GET', url, cart, undefined, options)
     return response
+  }
+
+  /**
+   * Return products api
+   */
+  products () {
+    if (!this.businessId) {
+      throw new Error('`businessId` is require to products. Example: ordering.businesses(businessId).products().get()')
+    }
+    if (typeof this.businessId !== 'number') {
+      throw new Error('`businessId` must be a number to use API menus. Example: ordering.businesses(businessId).products().get()')
+    }
+    return {
+      get: async (options: RequestOptionsProps = {}) => {
+        const url = `/business/${this.businessId}/products`
+        const response: ApiResponse = await this.makeRequest('GET', url, undefined, Product, options)
+        return response
+      }
+    }
   }
 
   /**

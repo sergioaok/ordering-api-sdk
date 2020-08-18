@@ -339,6 +339,18 @@
       // const updateMenuResponse = await ordering.businesses(businessId).menus(menuId).save({ name: backUpName })
       // console.log('Update menu: ', updateMenuResponse.content)
 
+      // Business products
+      // const getBusinessesDashboard = await ordering.businesses().asDashboard().get()
+      // const businessId = getBusinessesDashboard.content.result[0].id
+
+      // const getBusinessProductsResponse = await ordering.businesses(19).products().get()
+      // console.log('Business products: ', getBusinessProductsResponse.content)
+
+      // User alerts
+      // const getUserAlertsResponse = await ordering.users(user.id).alerts().get()
+      // console.log('Alerts: ', getUserAlertsResponse.content)
+
+
       // Logout
       const logoutResponse = await ordering.users(user.id).logout()
       !logoutResponse.content.error && console.log("Logout successful!")

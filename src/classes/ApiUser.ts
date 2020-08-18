@@ -152,6 +152,23 @@ export class ApiUser extends ApiBase implements ApiBaseInterface {
   }
 
   /**
+   * Return api alert a user by userId
+   * @param {RequestOptionsProps} options Params, headers and other options
+   */
+  alerts () {
+    if (!this.userId) {
+      throw new Error('`userId` is require get alerts. Example: ordering.users(userId).alerts().get()')
+    }
+    return {
+      get: async (options: RequestOptionsProps = {}) => {
+        const url = `/users/${this.userId}/alerts`
+        const response: ApiResponse = await this.makeRequest('GET', url, undefined, undefined, options)
+        return response
+      }
+    }
+  }
+
+  /**
    * Return the api addresses
    * @param {number} addressId Address id is optional
    */
