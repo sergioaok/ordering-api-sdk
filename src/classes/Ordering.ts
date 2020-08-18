@@ -11,6 +11,7 @@ import axios, { AxiosRequestConfig } from 'axios'
 import { ApiConfig } from './ApiConfig'
 import { ApiTranslation } from './ApiTranslation'
 import { ApiPage } from './ApiPage'
+import { ApiCountry } from './ApiCountry'
 
 interface SettingProps {
   url?: string
@@ -85,6 +86,10 @@ export class Ordering {
 
   pages (pageId: number) {
     return new ApiPage(this, pageId)
+  }
+
+  countries (countryId: number) {
+    return new ApiCountry(this, countryId)
   }
 
   system () {

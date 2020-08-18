@@ -350,6 +350,42 @@
       // const getUserAlertsResponse = await ordering.users(user.id).alerts().get()
       // console.log('Alerts: ', getUserAlertsResponse.content)
 
+      // Countries
+      // const getCuntriesResponse = await ordering.countries().get()
+      // console.log('Countries: ', getCuntriesResponse.content)
+      // const countryId = getCuntriesResponse.content.result[0].id
+
+      // const findOneCountryResponse = await ordering.countries(countryId).get()
+      // console.log('Country: ', findOneCountryResponse.content)
+
+      // const country = findOneCountryResponse.content.result
+      // const backUpName = country.name + ''
+      // country.name = `${backUpName} SDK`
+      // const saveCountryResponse = await country.save()
+      // console.log('Save new name', saveCountryResponse)
+
+      // const updateCountryResponse = await ordering.countries(countryId).save({ name: backUpName })
+      // console.log('Update country: ', updateCountryResponse.content)
+
+      // Cities
+      // const getCuntriesResponse = await ordering.countries().get()
+      // const countryId = getCuntriesResponse.content.result[0].id
+
+      // const getCitiesResponse = await ordering.countries(countryId).cities().get()
+      // console.log('Cities: ', getCitiesResponse.content)
+      // const cityId = getCuntriesResponse.content.result[0].id
+
+      // const findOneCityResponse = await ordering.countries(countryId).cities(cityId).get()
+      // console.log('City: ', findOneCityResponse.content)
+
+      // const city = findOneCityResponse.content.result
+      // const backUpName = city.name + ''
+      // city.name = `${backUpName} SDK`
+      // const saveCityResponse = await city.save()
+      // console.log('Save new name', saveCityResponse)
+
+      // const updateCityResponse = await ordering.countries(countryId).cities(cityId).save({ name: backUpName })
+      // console.log('Update city: ', updateCityResponse.content)
 
       // Logout
       const logoutResponse = await ordering.users(user.id).logout()
