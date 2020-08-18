@@ -318,6 +318,27 @@
       // const updatePageResponse = await ordering.pages(pageId).save({ name: backUpName })
       // console.log('Update page: ', updatePageResponse.content)
 
+      // Menus
+      // const getBusinessesDashboard = await ordering.businesses().asDashboard().get()
+      // const businessId = getBusinessesDashboard.content.result[0].id
+
+      // const getMenusResponse = await ordering.businesses(businessId).menus().get()
+      // console.log('Menus: ', getMenusResponse.content)
+
+      // const menuId = getMenusResponse.content.result[0].id
+
+      // const findOneMenuResponse = await ordering.businesses(businessId).menus(menuId).get()
+      // console.log('Menu: ', findOneMenuResponse.content)
+
+      // const menu = findOneMenuResponse.content.result
+      // const backUpName = menu.name + ''
+      // menu.name = `${backUpName} SDK`
+      // const saveMenuResponse = await menu.save()
+      // console.log('Save new name', saveMenuResponse)
+
+      // const updateMenuResponse = await ordering.businesses(businessId).menus(menuId).save({ name: backUpName })
+      // console.log('Update menu: ', updateMenuResponse.content)
+
       // Logout
       const logoutResponse = await ordering.users(user.id).logout()
       !logoutResponse.content.error && console.log("Logout successful!")

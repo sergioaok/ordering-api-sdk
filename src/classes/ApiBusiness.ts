@@ -4,6 +4,7 @@ import { RequestOptionsProps } from '../interfaces/RequestOptionsProps'
 import { ApiBase, ApiBaseInterface } from './ApiBase'
 import { Business, BusinessProps } from '../models/Business'
 import { ApiCategory } from './ApiCategory'
+import { ApiMenu } from './ApiMenu'
 
 /**
  * Class to configs api control
@@ -90,5 +91,19 @@ export class ApiBusiness extends ApiBase implements ApiBaseInterface {
       throw new Error('`businessId` must be a number to use API categories. Example: ordering.businesses(businessId).categories().get()')
     }
     return new ApiCategory(this.ordering, this.businessId, categoryId)
+  }
+
+  /**
+   * Return menus api
+   * @param {number} menuId Menu id is optional
+   */
+  menus (menuId: number) {
+    if (!this.businessId) {
+      throw new Error('`businessId` is require to use API menus. Example: ordering.businesses(businessId).menus().get()')
+    }
+    if (typeof this.businessId !== 'number') {
+      throw new Error('`businessId` must be a number to use API menus. Example: ordering.businesses(businessId).menus().get()')
+    }
+    return new ApiMenu(this.ordering, this.businessId, menuId)
   }
 }
