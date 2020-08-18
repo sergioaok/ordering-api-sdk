@@ -49,6 +49,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import { ApiBase } from './ApiBase';
 import { Business } from '../models/Business';
+import { ApiCategory } from './ApiCategory';
+import { ApiMenu } from './ApiMenu';
+import { Product } from '../models/Product';
 /**
  * Class to configs api control
  */
@@ -159,6 +162,62 @@ var ApiBusiness = /** @class */ (function (_super) {
                 }
             });
         });
+    };
+    /**
+     * Return products api
+     */
+    ApiBusiness.prototype.products = function () {
+        var _this = this;
+        if (!this.businessId) {
+            throw new Error('`businessId` is require to products. Example: ordering.businesses(businessId).products().get()');
+        }
+        if (typeof this.businessId !== 'number') {
+            throw new Error('`businessId` must be a number to use API menus. Example: ordering.businesses(businessId).products().get()');
+        }
+        return {
+            get: function (options) {
+                if (options === void 0) { options = {}; }
+                return __awaiter(_this, void 0, void 0, function () {
+                    var url, response;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                url = "/business/" + this.businessId + "/products";
+                                return [4 /*yield*/, this.makeRequest('GET', url, undefined, Product, options)];
+                            case 1:
+                                response = _a.sent();
+                                return [2 /*return*/, response];
+                        }
+                    });
+                });
+            }
+        };
+    };
+    /**
+     * Return categories api
+     * @param {number} categoryId Category id is optional
+     */
+    ApiBusiness.prototype.categories = function (categoryId) {
+        if (!this.businessId) {
+            throw new Error('`businessId` is require to use API categories. Example: ordering.businesses(businessId).categories().get()');
+        }
+        if (typeof this.businessId !== 'number') {
+            throw new Error('`businessId` must be a number to use API categories. Example: ordering.businesses(businessId).categories().get()');
+        }
+        return new ApiCategory(this.ordering, this.businessId, categoryId);
+    };
+    /**
+     * Return menus api
+     * @param {number} menuId Menu id is optional
+     */
+    ApiBusiness.prototype.menus = function (menuId) {
+        if (!this.businessId) {
+            throw new Error('`businessId` is require to use API menus. Example: ordering.businesses(businessId).menus().get()');
+        }
+        if (typeof this.businessId !== 'number') {
+            throw new Error('`businessId` must be a number to use API menus. Example: ordering.businesses(businessId).menus().get()');
+        }
+        return new ApiMenu(this.ordering, this.businessId, menuId);
     };
     return ApiBusiness;
 }(ApiBase));
