@@ -9,6 +9,8 @@ import { ApiBusiness } from './ApiBusiness';
 import { AxiosRequestConfig } from 'axios';
 import { ApiConfig } from './ApiConfig';
 import { ApiTranslation } from './ApiTranslation';
+import { ApiPage } from './ApiPage';
+import { ApiCountry } from './ApiCountry';
 interface SettingProps {
     url?: string;
     version?: string;
@@ -29,6 +31,10 @@ export declare class Ordering {
     get systemRoot(): string;
     setAccessToken(accessToken: string): this;
     setApiKey(apiKey: string): this;
+    setUrl(url: string): this;
+    setProject(project: string): this;
+    setVersion(version: string): this;
+    setLanguage(language: string): this;
     users(userId?: number): ApiUser;
     orders(orderId?: number): ApiOrder;
     configs(configId?: number): ApiConfig;
@@ -36,6 +42,8 @@ export declare class Ordering {
     validationFields(fieldId: number): ApiValidationField;
     languages(languageId: number): ApiLanguage;
     translations(translationId: number): ApiTranslation;
+    pages(pageId: number): ApiPage;
+    countries(countryId: number): ApiCountry;
     system(): ApiSystem;
     getRequestProps(options: RequestOptionsProps): [string, AxiosRequestConfig];
     get(path: string, options?: RequestOptionsProps): Promise<ApiResponse>;
