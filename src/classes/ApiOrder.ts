@@ -63,4 +63,17 @@ export class ApiOrder extends ApiBase implements ApiBaseInterface {
     const response: ApiResponse = await this.makeRequest('DELETE', url, undefined, Order, options)
     return response
   }
+
+  /**
+   * Get order summary
+   * @param {RequestOptionsProps} options Params, headers and other options
+   */
+  async summary (options: RequestOptionsProps = {}) {
+    if (this.orderId) {
+      throw new Error('`orderId` is NOT require to summary API. Example: ordering.orders().summary()')
+    }
+    const url = '/orders/dashboard'
+    const response: ApiResponse = await this.makeRequest('GET', url, undefined, undefined, options)
+    return response
+  }
 }

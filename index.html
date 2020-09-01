@@ -343,7 +343,7 @@
       // const getBusinessesDashboard = await ordering.businesses().asDashboard().get()
       // const businessId = getBusinessesDashboard.content.result[0].id
 
-      // const getBusinessProductsResponse = await ordering.businesses(19).products().get()
+      // const getBusinessProductsResponse = await ordering.businesses(19).products().parameters({ type: 1 }).get()
       // console.log('Business products: ', getBusinessProductsResponse.content)
 
       // User alerts
@@ -386,6 +386,10 @@
 
       // const updateCityResponse = await ordering.countries(countryId).cities(cityId).save({ name: backUpName })
       // console.log('Update city: ', updateCityResponse.content)
+
+      // Order Summary
+      // const summaryResponse = await ordering.orders().where([{attribute: 'status', 'value': 0}]).summary()
+      // console.log(summaryResponse.content)
 
       // Logout
       const logoutResponse = await ordering.users(user.id).logout()

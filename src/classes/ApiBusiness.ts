@@ -6,6 +6,7 @@ import { Business, BusinessProps } from '../models/Business'
 import { ApiCategory } from './ApiCategory'
 import { ApiMenu } from './ApiMenu'
 import { Product } from '../models/Product'
+import { ApiBusinessProduct } from './ApiBusinessProduct'
 
 /**
  * Class to configs api control
@@ -90,13 +91,14 @@ export class ApiBusiness extends ApiBase implements ApiBaseInterface {
     if (typeof this.businessId !== 'number') {
       throw new Error('`businessId` must be a number to use API menus. Example: ordering.businesses(businessId).products().get()')
     }
-    return {
-      get: async (options: RequestOptionsProps = {}) => {
-        const url = `/business/${this.businessId}/products`
-        const response: ApiResponse = await this.makeRequest('GET', url, undefined, Product, options)
-        return response
-      }
-    }
+    return new ApiBusinessProduct(this.ordering, this.businessId)
+    // return {
+    //   get: async (options: RequestOptionsProps = {}) => {
+    //     const url = `/business/${this.businessId}/products`
+    //     const response: ApiResponse = await this.makeRequest('GET', url, undefined, Product, options)
+    //     return response
+    //   }
+    // }
   }
 
   /**

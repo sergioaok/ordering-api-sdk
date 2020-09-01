@@ -56,6 +56,26 @@ export class Ordering {
     return this
   }
 
+  setUrl (url: string) {
+    this.url = url
+    return this
+  }
+
+  setProject (project: string) {
+    this.project = project
+    return this
+  }
+
+  setVersion (version: string) {
+    this.version = version
+    return this
+  }
+
+  setLanguage (language: string) {
+    this.language = language
+    return this
+  }
+
   users (userId: number = null) {
     return new ApiUser(this, userId)
   }
