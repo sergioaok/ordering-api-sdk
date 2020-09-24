@@ -137,6 +137,29 @@ var ApiOrder = /** @class */ (function (_super) {
             });
         });
     };
+    /**
+     * Get order summary
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    ApiOrder.prototype.summary = function (options) {
+        if (options === void 0) { options = {}; }
+        return __awaiter(this, void 0, void 0, function () {
+            var url, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (this.orderId) {
+                            throw new Error('`orderId` is NOT require to summary API. Example: ordering.orders().summary()');
+                        }
+                        url = '/orders/dashboard';
+                        return [4 /*yield*/, this.makeRequest('GET', url, undefined, undefined, options)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, response];
+                }
+            });
+        });
+    };
     return ApiOrder;
 }(ApiBase));
 export { ApiOrder };

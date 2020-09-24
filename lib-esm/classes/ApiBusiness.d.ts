@@ -3,6 +3,9 @@ import { Ordering } from './Ordering';
 import { RequestOptionsProps } from '../interfaces/RequestOptionsProps';
 import { ApiBase, ApiBaseInterface } from './ApiBase';
 import { BusinessProps } from '../models/Business';
+import { ApiCategory } from './ApiCategory';
+import { ApiMenu } from './ApiMenu';
+import { ApiBusinessProduct } from './ApiBusinessProduct';
 /**
  * Class to configs api control
  */
@@ -31,4 +34,18 @@ export declare class ApiBusiness extends ApiBase implements ApiBaseInterface {
      */
     delete(options?: RequestOptionsProps): Promise<ApiResponse>;
     validateCart(cart: any, options?: RequestOptionsProps): Promise<ApiResponse>;
+    /**
+     * Return products api
+     */
+    products(): ApiBusinessProduct;
+    /**
+     * Return categories api
+     * @param {number} categoryId Category id is optional
+     */
+    categories(categoryId: number): ApiCategory;
+    /**
+     * Return menus api
+     * @param {number} menuId Menu id is optional
+     */
+    menus(menuId: number): ApiMenu;
 }

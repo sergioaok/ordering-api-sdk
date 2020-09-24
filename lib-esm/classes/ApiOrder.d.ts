@@ -30,4 +30,9 @@ export declare class ApiOrder extends ApiBase implements ApiBaseInterface {
      * @param {RequestOptionsProps} options Params, headers and other options
      */
     delete(options?: RequestOptionsProps): Promise<ApiResponse>;
+    /**
+     * Get order summary
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    summary(options?: RequestOptionsProps): Promise<ApiResponse>;
 }
