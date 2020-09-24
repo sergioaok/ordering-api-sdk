@@ -118,49 +118,55 @@ export class Ordering {
 
   getRequestProps (options: RequestOptionsProps): [string, AxiosRequestConfig] {
     const root: string = options.system ? this.systemRoot : this.root
-    const query: any = options.query || {}
-    if (Object.keys(query).length > 0) {
-      for (const key in query) {
-        query[key] = typeof query[key] === 'object' ? JSON.stringify(query[key]) : query[key]
+    const { query, mode, conditions, headers, ...otherOptions } = options
+    /**
+     * Parse query
+     */
+    const _query = query || {}
+    if (_query && Object.keys(_query).length > 0) {
+      for (const key in _query) {
+        _query[key] = typeof _query[key] === 'object' ? JSON.stringify(_query[key]) : _query[key]
       }
     }
+
     /**
      * Parse params from options and select attributes
      */
-    let params: string [] = options.query?.params?.split(',') || []
+    let params: string [] = _query?.params?.split(',') || []
     params = params.concat(options.attributes || [])
     if (params.length > 0) {
-      query.params = params.join(',')
+      _query.params = params.join(',')
     }
     /**
      * Parse conditions to filter api data
      */
-    if (options.conditions?.length > 0) {
-      query.where = typeof options.conditions === 'object' ? JSON.stringify(options.conditions) : options.conditions
+    if (conditions?.length > 0) {
+      _query.where = typeof options.conditions === 'object' ? JSON.stringify(options.conditions) : options.conditions
     }
     /**
      * Parse conditions to filter api data
      */
-    if (options.mode) {
-      query.mode = options.mode
+    if (mode) {
+      _query.mode = options.mode
     }
     /**
      * Parse headers from options and default
      */
-    const headers: any = {}
+    const authHeaders: any = {}
     if (this.accessToken && !this.apiKey) {
-      headers.Authorization = `Bearer ${this.accessToken}`
+      authHeaders.Authorization = `Bearer ${this.accessToken}`
     }
     if (this.apiKey) {
-      headers['X-Api-Key'] = this.apiKey
+      authHeaders['X-Api-Key'] = this.apiKey
     }
     /**
      * Create Axios Option Request
      */
     const axiosOptions: AxiosRequestConfig = {
+      ...otherOptions,
       validateStatus: status => status < 500,
-      params: query || {},
-      headers: Object.assign(headers, options.headers || {})
+      params: _query || {},
+      headers: Object.assign(authHeaders, headers || {})
     }
 
     return [root, axiosOptions]

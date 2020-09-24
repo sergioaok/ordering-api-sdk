@@ -29,6 +29,9 @@ import { Menu, MenuProps } from './models/Menu'
 import { ApiMenu } from './classes/ApiMenu'
 import { Config, ConfigProps } from './models/Config'
 import { ApiConfig } from './classes/ApiConfig'
+import axios from 'axios'
+
+const CancelToken = axios.CancelToken
 
 export {
   Ordering,
@@ -78,5 +81,6 @@ export {
   Menu,
   MenuProps,
   Config,
-  ConfigProps
+  ConfigProps,
+  CancelToken
 }
