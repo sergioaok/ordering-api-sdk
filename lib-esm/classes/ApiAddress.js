@@ -110,7 +110,7 @@ var ApiAddress = /** @class */ (function (_super) {
                         if (!this.userId) {
                             throw new Error('You must provide the `userId` param. Example ordering.users(userId).addresses(addressId?).save(changes)');
                         }
-                        url = "/users/" + this.userId + "/addresses" + (this.userId ? "/" + this.userId : '');
+                        url = "/users/" + this.userId + "/addresses" + (this.addressId ? "/" + this.addressId : '');
                         return [4 /*yield*/, this.makeRequest(!this.addressId ? 'POST' : 'PUT', url, address, Address, options)];
                     case 1:
                         response = _b.sent();
