@@ -51,7 +51,7 @@ export class ApiAddress extends ApiBase implements ApiBaseInterface {
     if (!this.userId) {
       throw new Error('You must provide the `userId` param. Example ordering.users(userId).addresses(addressId?).save(changes)')
     }
-    const url = `/users/${this.userId}/addresses` + (this.userId ? `/${this.userId}` : '')
+    const url = `/users/${this.userId}/addresses` + (this.addressId ? `/${this.addressId}` : '')
     const response: ApiResponse = await this.makeRequest(!this.addressId ? 'POST' : 'PUT', url, address, Address, options)
     const { content: { error, result } } = response
     if (!error && !this.addressId) {
