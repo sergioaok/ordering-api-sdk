@@ -64,7 +64,8 @@
       //       }
       //     }
       //   ]
-      //   const findAllUserResponse = await ordering.users().select(['name', 'lastname', 'email', 'addresses', 'available']).where(conditions).asDashboard().get()
+      //   const cancelToken = {}
+      //   const findAllUserResponse = await ordering.users().select(['name', 'lastname', 'email', 'addresses', 'available']).where(conditions).asDashboard().get({ cancelToken })
       //   console.log('Get users', findAllUserResponse.content)
   
       //   const updateUserResponse = await ordering.users(user.id).save({ phone: Date.now() })

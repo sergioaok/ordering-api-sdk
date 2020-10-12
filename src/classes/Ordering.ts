@@ -7,7 +7,6 @@ import { ApiValidationField } from './ApiValidationField'
 import { ApiOrder } from './ApiOrder'
 import { ApiBusiness } from './ApiBusiness'
 
-import axios, { AxiosRequestConfig } from 'axios'
 import { ApiConfig } from './ApiConfig'
 import { ApiTranslation } from './ApiTranslation'
 import { ApiPage } from './ApiPage'
@@ -116,7 +115,7 @@ export class Ordering {
     return new ApiSystem(this)
   }
 
-  getRequestProps (options: RequestOptionsProps): [string, AxiosRequestConfig] {
+  getRequestProps (options: RequestOptionsProps): [string, any] {
     const root: string = options.system ? this.systemRoot : this.root
     const { query, mode, conditions, headers, ...otherOptions } = options
     /**
@@ -160,27 +159,80 @@ export class Ordering {
       authHeaders['X-Api-Key'] = this.apiKey
     }
     /**
-     * Create Axios Option Request
+     * Create Option Request
      */
-    const axiosOptions: AxiosRequestConfig = {
+    const _options: any = {
       ...otherOptions,
-      validateStatus: status => status < 500,
+      // validateStatus: status => status < 500,
       params: _query || {},
       headers: Object.assign(authHeaders, headers || {})
     }
 
-    return [root, axiosOptions]
+    return [root, _options]
+  }
+
+  makeRequest (method: string, url: string, data: any, options: any) {
+    const promise = new Promise(function (resolve, reject) {
+      const xhr = new window.XMLHttpRequest()
+
+      /**
+       * Parse query to request
+       */
+      const query = Object.entries(options.params || {}).map((entry: any) => {
+        return `${entry[0]}=${entry[1]}`
+      }).join('&')
+      xhr.open(method, url + (query ? `?${query}` : ''))
+      /**
+       * Add headers to request
+       */
+      Object.entries(options.headers || {}).forEach((entry: any) => {
+        xhr.setRequestHeader(entry[0], entry[1])
+      })
+      /**
+       * Create cancel request
+       */
+      if (options.cancelToken && typeof options.cancelToken === 'object') {
+        options.cancelToken.cancel = () => {
+          xhr.abort()
+        }
+      }
+      xhr.onload = function () {
+        if (this.status < 500) {
+          const data = options.json ? JSON.parse(this.response) : this.response
+          resolve({
+            request: this,
+            data,
+            status: this.status,
+            statusText: this.statusText
+          })
+        } else {
+          reject(new Error('Internal error'))
+        }
+      }
+      xhr.onerror = function (err) {
+        reject(err)
+      }
+      if (options.json) {
+        xhr.setRequestHeader('Content-Type', 'application/json')
+        xhr.send(data ? JSON.stringify(data) : null)
+      } else {
+        xhr.send()
+      }
+    })
+
+    return promise
   }
 
   async get (path: string, options: RequestOptionsProps = { CastClass: null, json: true, system: false }) {
-    const [root, axiosOptions] = this.getRequestProps(options)
+    const [root, reqOptions] = this.getRequestProps(options)
 
-    const response = await axios.get(root + path, axiosOptions)
+    const response = await this.makeRequest('GET', root + path, null, reqOptions)
+
     return new ApiResponse(response, options, options.api)
   }
 
   async post (path: string, data: any = {}, options: RequestOptionsProps = { CastClass: null, json: true, system: false }) {
-    const [root, axiosOptions] = this.getRequestProps(options)
+    const [root, reqOptions] = this.getRequestProps(options)
 
     if (options.json) {
       for (const key in data) {
@@ -190,12 +242,12 @@ export class Ordering {
       }
     }
 
-    const response = await axios.post(root + path, data, axiosOptions)
+    const response = await this.makeRequest('POST', root + path, data, reqOptions)
     return new ApiResponse(response, options, options.api)
   }
 
   async put (path: string, data: any = {}, options: RequestOptionsProps = { CastClass: null, json: true, system: false }) {
-    const [root, axiosOptions] = this.getRequestProps(options)
+    const [root, reqOptions] = this.getRequestProps(options)
 
     if (options.json) {
       for (const key in data) {
@@ -205,14 +257,14 @@ export class Ordering {
       }
     }
 
-    const response = await axios.put(root + path, data, axiosOptions)
+    const response = await this.makeRequest('PUT', root + path, data, reqOptions)
     return new ApiResponse(response, options, options.api)
   }
 
   async delete (path: string, options: RequestOptionsProps = { CastClass: null, json: true, system: false }) {
-    const [root, axiosOptions] = this.getRequestProps(options)
+    const [root, reqOptions] = this.getRequestProps(options)
 
-    const response = await axios.delete(root + path, axiosOptions)
+    const response = await this.makeRequest('DELETE', root + path, null, reqOptions)
     return new ApiResponse(response, options, options.api)
   }
 }

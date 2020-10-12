@@ -1,6 +1,5 @@
 import { RequestOptionsProps } from '../interfaces/RequestOptionsProps'
 import { Pagination } from './Pagination'
-import { AxiosResponse } from 'axios'
 import { TypeApi } from '../types'
 
 interface ResponseProps {
@@ -10,10 +9,10 @@ interface ResponseProps {
 }
 
 export class ApiResponse {
-  private response: AxiosResponse
+  private response: any
   private options: RequestOptionsProps
   private api: TypeApi
-  constructor (response: AxiosResponse, options: RequestOptionsProps = {}, api: TypeApi = undefined) {
+  constructor (response: any, options: RequestOptionsProps = {}, api: TypeApi = undefined) {
     this.response = response
     this.options = options
     this.api = api
