@@ -29,5 +29,4 @@ import { Menu, MenuProps } from './models/Menu';
 import { ApiMenu } from './classes/ApiMenu';
 import { Config, ConfigProps } from './models/Config';
 import { ApiConfig } from './classes/ApiConfig';
-declare const CancelToken: import("axios").CancelTokenStatic;
-export { Ordering, ApiBase, ApiBaseInterface, ApiUser, ApiAddress, ApiOrder, ApiBusiness, ApiValidationField, ApiLanguage, ApiTranslation, ApiCountry, ApiCity, ApiPage, ApiCategory, ApiProduct, ApiMenu, ApiConfig, Model, User, UserProps, Address, AddressProps, Order, OrderProps, Business, BusinessProps, ValidationField, ValidationFieldProps, Language, LanguageProps, Translation, TranslationProps, Country, CountryProps, City, CityProps, Page, PageProps, Category, CategoryProps, Product, ProductProps, Menu, MenuProps, Config, ConfigProps, CancelToken };
+export { Ordering, ApiBase, ApiBaseInterface, ApiUser, ApiAddress, ApiOrder, ApiBusiness, ApiValidationField, ApiLanguage, ApiTranslation, ApiCountry, ApiCity, ApiPage, ApiCategory, ApiProduct, ApiMenu, ApiConfig, Model, User, UserProps, Address, AddressProps, Order, OrderProps, Business, BusinessProps, ValidationField, ValidationFieldProps, Language, LanguageProps, Translation, TranslationProps, Country, CountryProps, City, CityProps, Page, PageProps, Category, CategoryProps, Product, ProductProps, Menu, MenuProps, Config, ConfigProps };

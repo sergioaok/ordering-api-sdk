@@ -6,7 +6,6 @@ import { ApiUser } from './ApiUser';
 import { ApiValidationField } from './ApiValidationField';
 import { ApiOrder } from './ApiOrder';
 import { ApiBusiness } from './ApiBusiness';
-import { AxiosRequestConfig } from 'axios';
 import { ApiConfig } from './ApiConfig';
 import { ApiTranslation } from './ApiTranslation';
 import { ApiPage } from './ApiPage';
@@ -45,7 +44,8 @@ export declare class Ordering {
     pages(pageId: number): ApiPage;
     countries(countryId: number): ApiCountry;
     system(): ApiSystem;
-    getRequestProps(options: RequestOptionsProps): [string, AxiosRequestConfig];
+    getRequestProps(options: RequestOptionsProps): [string, any];
+    makeRequest(method: string, url: string, data: any, options: any): Promise<unknown>;
     get(path: string, options?: RequestOptionsProps): Promise<ApiResponse>;
     post(path: string, data?: any, options?: RequestOptionsProps): Promise<ApiResponse>;
     put(path: string, data?: any, options?: RequestOptionsProps): Promise<ApiResponse>;
