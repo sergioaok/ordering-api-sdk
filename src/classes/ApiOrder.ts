@@ -3,6 +3,7 @@ import { Ordering } from './Ordering'
 import { RequestOptionsProps } from '../interfaces/RequestOptionsProps'
 import { Order, OrderProps } from '../models/Order'
 import { ApiBase, ApiBaseInterface } from './ApiBase'
+import { ApiOrderMessage } from './ApiOrderMessage'
 
 /**
  * Class to orders api control
@@ -75,5 +76,19 @@ export class ApiOrder extends ApiBase implements ApiBaseInterface {
     const url = '/orders/dashboard'
     const response: ApiResponse = await this.makeRequest('GET', url, undefined, undefined, options)
     return response
+  }
+
+  /**
+   * Return messages api
+   * @param {number} orderId Order id is optional
+   */
+  messages (messagesId: number) {
+    if (!this.orderId) {
+      throw new Error('`orderId` is require to use API messages. Example: ordering.orders(orderId).messages().get()')
+    }
+    if (typeof this.orderId !== 'number') {
+      throw new Error('`orderId` must be a number to use API messages. Example: ordering.orders(orderId).messages().get()')
+    }
+    return new ApiOrderMessage(this.ordering, this.orderId, messagesId)
   }
 }

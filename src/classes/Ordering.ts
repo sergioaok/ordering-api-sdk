@@ -11,6 +11,8 @@ import { ApiConfig } from './ApiConfig'
 import { ApiTranslation } from './ApiTranslation'
 import { ApiPage } from './ApiPage'
 import { ApiCountry } from './ApiCountry'
+import { ApiOrderOption } from './ApiOrderOption'
+import { ApiCart } from './ApiCart'
 
 interface SettingProps {
   url?: string
@@ -109,6 +111,14 @@ export class Ordering {
 
   countries (countryId: number) {
     return new ApiCountry(this, countryId)
+  }
+
+  orderOptions (orderOptionId: number) {
+    return new ApiOrderOption(this, orderOptionId)
+  }
+
+  carts (cartId: number | string) {
+    return new ApiCart(this, cartId)
   }
 
   system () {

@@ -29,6 +29,12 @@ import { Menu, MenuProps } from './models/Menu'
 import { ApiMenu } from './classes/ApiMenu'
 import { Config, ConfigProps } from './models/Config'
 import { ApiConfig } from './classes/ApiConfig'
+import { Cart, CartProps } from './models/Cart'
+import { ApiCart } from './classes/ApiCart'
+import { OrderOption, OrderOptionProps } from './models/OrderOption'
+import { ApiOrderOption } from './classes/ApiOrderOption'
+import { OrderMessage, OrderMessageProps } from './models/OrderMessage'
+import { ApiOrderMessage } from './classes/ApiOrderMessage'
 
 export {
   Ordering,
@@ -49,6 +55,9 @@ export {
   ApiProduct,
   ApiMenu,
   ApiConfig,
+  ApiCart,
+  ApiOrderOption,
+  ApiOrderMessage,
   // Models
   Model,
   User,
@@ -78,5 +87,11 @@ export {
   Menu,
   MenuProps,
   Config,
-  ConfigProps
+  ConfigProps,
+  Cart,
+  CartProps,
+  OrderOption,
+  OrderOptionProps,
+  OrderMessage,
+  OrderMessageProps
 }
