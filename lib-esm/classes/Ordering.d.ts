@@ -10,6 +10,8 @@ import { ApiConfig } from './ApiConfig';
 import { ApiTranslation } from './ApiTranslation';
 import { ApiPage } from './ApiPage';
 import { ApiCountry } from './ApiCountry';
+import { ApiOrderOption } from './ApiOrderOption';
+import { ApiCart } from './ApiCart';
 interface SettingProps {
     url?: string;
     version?: string;
@@ -43,6 +45,8 @@ export declare class Ordering {
     translations(translationId: number): ApiTranslation;
     pages(pageId: number): ApiPage;
     countries(countryId: number): ApiCountry;
+    orderOptions(orderOptionId: number): ApiOrderOption;
+    carts(cartId: number | string): ApiCart;
     system(): ApiSystem;
     getRequestProps(options: RequestOptionsProps): [string, any];
     makeRequest(method: string, url: string, data: any, options: any): Promise<unknown>;

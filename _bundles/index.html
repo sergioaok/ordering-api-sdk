@@ -381,6 +381,28 @@
       // const summaryResponse = await ordering.orders().where([{attribute: 'status', 'value': 0}]).summary()
       // console.log(summaryResponse.content)
 
+      // Order messages
+      // const getOrdersResponse = await ordering.orders().get()
+      // const orderId = getOrdersResponse.content.result[0].id
+
+      // const getOrderMessagesResponse = await ordering.orders(orderId).messages().get()
+      // console.log('Messages: ', getOrderMessagesResponse.content)
+
+      // Order options
+      // const getOrderOptionsResponse = await ordering.orderOptions().get()
+      // console.log('Order options', getOrderOptionsResponse.content)
+
+      // Carts
+      // const getCartsResponse = await ordering.carts().get()
+      // console.log('Carts: ', getCartsResponse.content)
+      // const cartUuid = getCartsResponse.content.result[0].uuid
+
+      // const getCartResponse = await ordering.carts(cartUuid).get()
+      // console.log('Cart: ', getCartResponse.content)
+
+      // const updateCartRequest = await ordering.carts(cartUuid).addProduct({})
+      // console.log('Update cart: ', updateCartRequest.content)
+
       // Logout
       const logoutResponse = await ordering.users(user.id).logout()
       !logoutResponse.content.error && console.log("Logout successful!")

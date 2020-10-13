@@ -29,9 +29,15 @@ import { Menu } from './models/Menu';
 import { ApiMenu } from './classes/ApiMenu';
 import { Config } from './models/Config';
 import { ApiConfig } from './classes/ApiConfig';
+import { Cart } from './models/Cart';
+import { ApiCart } from './classes/ApiCart';
+import { OrderOption } from './models/OrderOption';
+import { ApiOrderOption } from './classes/ApiOrderOption';
+import { OrderMessage } from './models/OrderMessage';
+import { ApiOrderMessage } from './classes/ApiOrderMessage';
 export { Ordering, 
 // Apis
-ApiBase, ApiUser, ApiAddress, ApiOrder, ApiBusiness, ApiValidationField, ApiLanguage, ApiTranslation, ApiCountry, ApiCity, ApiPage, ApiCategory, ApiProduct, ApiMenu, ApiConfig, 
+ApiBase, ApiUser, ApiAddress, ApiOrder, ApiBusiness, ApiValidationField, ApiLanguage, ApiTranslation, ApiCountry, ApiCity, ApiPage, ApiCategory, ApiProduct, ApiMenu, ApiConfig, ApiCart, ApiOrderOption, ApiOrderMessage, 
 // Models
-Model, User, Address, Order, Business, ValidationField, Language, Translation, Country, City, Page, Category, Product, Menu, Config };
+Model, User, Address, Order, Business, ValidationField, Language, Translation, Country, City, Page, Category, Product, Menu, Config, Cart, OrderOption, OrderMessage };
 //# sourceMappingURL=index.js.map

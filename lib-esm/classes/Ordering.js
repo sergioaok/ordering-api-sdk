@@ -67,6 +67,8 @@ import { ApiConfig } from './ApiConfig';
 import { ApiTranslation } from './ApiTranslation';
 import { ApiPage } from './ApiPage';
 import { ApiCountry } from './ApiCountry';
+import { ApiOrderOption } from './ApiOrderOption';
+import { ApiCart } from './ApiCart';
 var Ordering = /** @class */ (function () {
     function Ordering(_a) {
         var _b = _a === void 0 ? {} : _a, _c = _b.url, url = _c === void 0 ? 'https://apiv4.ordering.co' : _c, _d = _b.version, version = _d === void 0 ? 'v400' : _d, _e = _b.project, project = _e === void 0 ? 'demo' : _e, _f = _b.language, language = _f === void 0 ? 'en' : _f, _g = _b.accessToken, accessToken = _g === void 0 ? null : _g, _h = _b.apiKey, apiKey = _h === void 0 ? null : _h;
@@ -144,6 +146,12 @@ var Ordering = /** @class */ (function () {
     };
     Ordering.prototype.countries = function (countryId) {
         return new ApiCountry(this, countryId);
+    };
+    Ordering.prototype.orderOptions = function (orderOptionId) {
+        return new ApiOrderOption(this, orderOptionId);
+    };
+    Ordering.prototype.carts = function (cartId) {
+        return new ApiCart(this, cartId);
     };
     Ordering.prototype.system = function () {
         return new ApiSystem(this);

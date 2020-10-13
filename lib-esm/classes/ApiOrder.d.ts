@@ -3,6 +3,7 @@ import { Ordering } from './Ordering';
 import { RequestOptionsProps } from '../interfaces/RequestOptionsProps';
 import { OrderProps } from '../models/Order';
 import { ApiBase, ApiBaseInterface } from './ApiBase';
+import { ApiOrderMessage } from './ApiOrderMessage';
 /**
  * Class to orders api control
  */
@@ -35,4 +36,9 @@ export declare class ApiOrder extends ApiBase implements ApiBaseInterface {
      * @param {RequestOptionsProps} options Params, headers and other options
      */
     summary(options?: RequestOptionsProps): Promise<ApiResponse>;
+    /**
+     * Return messages api
+     * @param {number} orderId Order id is optional
+     */
+    messages(messagesId: number): ApiOrderMessage;
 }

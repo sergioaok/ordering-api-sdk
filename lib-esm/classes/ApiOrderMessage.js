@@ -47,79 +47,33 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { Order } from '../models/Order';
 import { ApiBase } from './ApiBase';
-import { ApiOrderMessage } from './ApiOrderMessage';
+import { OrderMessage } from '../models/OrderMessage';
 /**
- * Class to orders api control
+ * Class to order message api control
  */
-var ApiOrder = /** @class */ (function (_super) {
-    __extends(ApiOrder, _super);
-    function ApiOrder(ordering, orderId) {
+var ApiOrderMessage = /** @class */ (function (_super) {
+    __extends(ApiOrderMessage, _super);
+    function ApiOrderMessage(ordering, orderId, messageId) {
+        if (messageId === void 0) { messageId = null; }
         var _this = _super.call(this, ordering) || this;
+        _this.ordering = ordering;
         _this.orderId = orderId;
+        _this.messageId = messageId;
         return _this;
     }
     /**
      * Replace current modelId
      * @param id ID to replace current api modelId
      */
-    ApiOrder.prototype.setModelId = function (id) {
-        this.orderId = id;
+    ApiOrderMessage.prototype.setModelId = function (id) {
+        this.messageId = id;
     };
     /**
-     * Get an order if orderId is set else get all
+     * Get a order message if messageId is set else get all
      * @param {RequestOptionsProps} options Params, headers and other options
      */
-    ApiOrder.prototype.get = function (options) {
-        if (options === void 0) { options = {}; }
-        return __awaiter(this, void 0, void 0, function () {
-            var url, response;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (this.orderId && this.conditions.length > 0) {
-                            throw new Error('The `where` function is not compatible with orders(orderId). Example ordering.orders().where(contitions).get()');
-                        }
-                        url = '/orders' + (this.orderId ? "/" + this.orderId : '');
-                        return [4 /*yield*/, this.makeRequest('GET', url, undefined, Order, options)];
-                    case 1:
-                        response = _a.sent();
-                        return [2 /*return*/, response];
-                }
-            });
-        });
-    };
-    /**
-     * Update an order if orderId is set else create order
-     * @param {OrderProps} order Attributes to create or update order
-     * @param {RequestOptionsProps} options Params, headers and other options
-     */
-    ApiOrder.prototype.save = function (order, options) {
-        if (options === void 0) { options = {}; }
-        return __awaiter(this, void 0, void 0, function () {
-            var url, response, _a, error, result;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        url = '/orders' + (this.orderId ? "/" + this.orderId : '');
-                        return [4 /*yield*/, this.makeRequest(this.orderId ? 'PUT' : 'POST', url, order, Order, options)];
-                    case 1:
-                        response = _b.sent();
-                        _a = response.content, error = _a.error, result = _a.result;
-                        if (!error && !this.orderId) {
-                            this.orderId = result.id;
-                        }
-                        return [2 /*return*/, response];
-                }
-            });
-        });
-    };
-    /**
-     * Delete an order by orderId
-     * @param {RequestOptionsProps} options Params, headers and other options
-     */
-    ApiOrder.prototype.delete = function (options) {
+    ApiOrderMessage.prototype.get = function (options) {
         if (options === void 0) { options = {}; }
         return __awaiter(this, void 0, void 0, function () {
             var url, response;
@@ -127,10 +81,13 @@ var ApiOrder = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         if (!this.orderId) {
-                            throw new Error('`orderId` is require to delete. Example: ordering.orders(orderId).delete()');
+                            throw new Error('You must provide the `orderId` param. Example ordering.orders(orderId).messages(messageId?).get()');
                         }
-                        url = "/orders/" + this.orderId;
-                        return [4 /*yield*/, this.makeRequest('DELETE', url, undefined, Order, options)];
+                        if (this.messageId && this.conditions.length > 0) {
+                            throw new Error('The `where` function is not compatible with businesses(orderId).messages(messageId). Example ordering.orders(orderId).messages().where(contitions).get()');
+                        }
+                        url = "/orders/" + this.orderId + "/messages" + (this.messageId ? "/" + this.messageId : '');
+                        return [4 /*yield*/, this.makeRequest('GET', url, undefined, OrderMessage, options)];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response];
@@ -139,21 +96,55 @@ var ApiOrder = /** @class */ (function (_super) {
         });
     };
     /**
-     * Get order summary
+     * Update a order message if messageId is set else create order message
+     * @param {OrderMessageProps} order message Attributes to create or update order message
      * @param {RequestOptionsProps} options Params, headers and other options
      */
-    ApiOrder.prototype.summary = function (options) {
+    ApiOrderMessage.prototype.save = function (orderMessage, options) {
+        if (options === void 0) { options = {}; }
+        return __awaiter(this, void 0, void 0, function () {
+            var url, response, _a, error, result;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        if (!this.orderId) {
+                            throw new Error('You must provide the `orderId` param. Example ordering.orders(orderId).messages(messageId?).save(changes)');
+                        }
+                        if (!this.messageId) {
+                            throw new Error('ordering.orders(orderId).messages(messageId).save(changes) is not implemented.');
+                        }
+                        url = "/orders/" + this.orderId + "/messages" + (this.messageId ? "/" + this.messageId : '');
+                        return [4 /*yield*/, this.makeRequest('POST', url, orderMessage, OrderMessage, options)];
+                    case 1:
+                        response = _b.sent();
+                        _a = response.content, error = _a.error, result = _a.result;
+                        if (!error && !this.messageId) {
+                            this.messageId = result.id;
+                        }
+                        return [2 /*return*/, response];
+                }
+            });
+        });
+    };
+    /**
+     * Delete a order message by messageId
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    ApiOrderMessage.prototype.delete = function (options) {
         if (options === void 0) { options = {}; }
         return __awaiter(this, void 0, void 0, function () {
             var url, response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (this.orderId) {
-                            throw new Error('`orderId` is NOT require to summary API. Example: ordering.orders().summary()');
+                        if (!this.orderId) {
+                            throw new Error('ordering.orders(orderId).messages(messageId).delete() is not implemented.');
                         }
-                        url = '/orders/dashboard';
-                        return [4 /*yield*/, this.makeRequest('GET', url, undefined, undefined, options)];
+                        if (!this.messageId) {
+                            throw new Error('ordering.orders(orderId).messages(messageId).delete() is not implemented.');
+                        }
+                        url = "/orders/" + this.orderId + "/messages/" + this.messageId;
+                        return [4 /*yield*/, this.makeRequest('DELETE', url, undefined, OrderMessage, options)];
                     case 1:
                         response = _a.sent();
                         return [2 /*return*/, response];
@@ -161,20 +152,7 @@ var ApiOrder = /** @class */ (function (_super) {
             });
         });
     };
-    /**
-     * Return messages api
-     * @param {number} orderId Order id is optional
-     */
-    ApiOrder.prototype.messages = function (messagesId) {
-        if (!this.orderId) {
-            throw new Error('`orderId` is require to use API messages. Example: ordering.orders(orderId).messages().get()');
-        }
-        if (typeof this.orderId !== 'number') {
-            throw new Error('`orderId` must be a number to use API messages. Example: ordering.orders(orderId).messages().get()');
-        }
-        return new ApiOrderMessage(this.ordering, this.orderId, messagesId);
-    };
-    return ApiOrder;
+    return ApiOrderMessage;
 }(ApiBase));
-export { ApiOrder };
-//# sourceMappingURL=ApiOrder.js.map
+export { ApiOrderMessage };
+//# sourceMappingURL=ApiOrderMessage.js.map
