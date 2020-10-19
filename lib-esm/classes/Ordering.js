@@ -289,7 +289,7 @@ var Ordering = /** @class */ (function () {
                         _a = this.getRequestProps(options), root = _a[0], reqOptions = _a[1];
                         if (options.json) {
                             for (key in data) {
-                                if (typeof data[key] === 'object') {
+                                if (data[key] !== null && typeof data[key] === 'object') {
                                     data[key] = JSON.stringify(data[key]);
                                 }
                             }
@@ -313,7 +313,7 @@ var Ordering = /** @class */ (function () {
                         _a = this.getRequestProps(options), root = _a[0], reqOptions = _a[1];
                         if (options.json) {
                             for (key in data) {
-                                if (typeof data[key] === 'object') {
+                                if (data[key] !== null && typeof data[key] === 'object') {
                                     data[key] = JSON.stringify(data[key]);
                                 }
                             }
