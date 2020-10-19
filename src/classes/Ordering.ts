@@ -246,7 +246,7 @@ export class Ordering {
 
     if (options.json) {
       for (const key in data) {
-        if (typeof data[key] === 'object') {
+        if (data[key] !== null && typeof data[key] === 'object') {
           data[key] = JSON.stringify(data[key])
         }
       }
@@ -261,7 +261,7 @@ export class Ordering {
 
     if (options.json) {
       for (const key in data) {
-        if (typeof data[key] === 'object') {
+        if (data[key] !== null && typeof data[key] === 'object') {
           data[key] = JSON.stringify(data[key])
         }
       }
