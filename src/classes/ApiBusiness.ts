@@ -32,7 +32,7 @@ export class ApiBusiness extends ApiBase implements ApiBaseInterface {
    * @param {RequestOptionsProps} options Params, headers and other options
    */
   async get (options: RequestOptionsProps = {}) {
-    if (this.businessId && this.conditions.length > 0) {
+    if (this.businessId && this.conditions) {
       throw new Error('The `where` function is not compatible with businesses(businessId). Example ordering.businesses().where(contitions).get()')
     }
     const url = '/business' + (this.businessId ? `/${this.businessId}` : '')

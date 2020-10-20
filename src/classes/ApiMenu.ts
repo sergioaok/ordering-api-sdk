@@ -34,7 +34,7 @@ export class ApiMenu extends ApiBase implements ApiBaseInterface {
     if (!this.businessId) {
       throw new Error('You must provide the `businessId` param. Example ordering.businesses(businessId).menus(menuId?).get()')
     }
-    if (this.menuId && this.conditions.length > 0) {
+    if (this.menuId && this.conditions) {
       throw new Error('The `where` function is not compatible with businesses(businessId).menus(menuId). Example ordering.businesses(businessId).menus().where(contitions).get()')
     }
     const url = `/business/${this.businessId}/menus` + (this.menuId ? `/${this.menuId}` : '')

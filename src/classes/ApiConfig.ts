@@ -28,7 +28,7 @@ export class ApiConfig extends ApiBase implements ApiBaseInterface {
    * @param {RequestOptionsProps} options Params, headers and other options
    */
   async get (options: RequestOptionsProps = {}) {
-    if (this.configId && this.conditions.length > 0) {
+    if (this.configId && this.conditions) {
       throw new Error('The `where` function is not compatible with configs(configId). Example ordering.configs().where(contitions).get()')
     }
     const url = '/configs' + (this.configId ? `/${this.configId}` : '')

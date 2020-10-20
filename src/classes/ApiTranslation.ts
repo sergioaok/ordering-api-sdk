@@ -25,7 +25,7 @@ export class ApiTranslation extends ApiBase implements ApiBaseInterface {
    * @param {RequestOptionsProps} options Params, headers and other options
    */
   async get (options: RequestOptionsProps = {}) {
-    if (this.translationId && this.conditions.length > 0) {
+    if (this.translationId && this.conditions) {
       throw new Error('The `where` function is not compatible with translations(translationId). Example ordering.translations().where(contitions).get()')
     }
     const url = '/translations' + (this.translationId ? `/${this.translationId}` : '')

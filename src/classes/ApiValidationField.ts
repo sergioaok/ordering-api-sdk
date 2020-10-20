@@ -24,7 +24,7 @@ export class ApiValidationField extends ApiBase implements ApiBaseInterface {
    * @param {RequestOptionsProps} options Params, headers and other options
    */
   async get (options: RequestOptionsProps = {}) {
-    if (this.fieldId && this.conditions.length > 0) {
+    if (this.fieldId && this.conditions) {
       throw new Error('The `where` function is not compatible with validationFields(fieldId). Example ordering.validationFields().where(contitions).get()')
     }
     const url = '/validationfields' + (this.fieldId ? `/${this.fieldId}` : '')

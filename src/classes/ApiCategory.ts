@@ -35,7 +35,7 @@ export class ApiCategory extends ApiBase implements ApiBaseInterface {
     if (!this.businessId) {
       throw new Error('You must provide the `businessId` param. Example ordering.businesses(businessId).categories(categoryId?).get()')
     }
-    if (this.categoryId && this.conditions.length > 0) {
+    if (this.categoryId && this.conditions) {
       throw new Error('The `where` function is not compatible with businesses(businessId).categories(categoryId). Example ordering.businesses(businessId).categories().where(contitions).get()')
     }
     const url = `/business/${this.businessId}/categories` + (this.categoryId ? `/${this.categoryId}` : '')

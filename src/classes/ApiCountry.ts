@@ -29,7 +29,7 @@ export class ApiCountry extends ApiBase implements ApiBaseInterface {
    * @param {RequestOptionsProps} options Params, headers and other options
    */
   async get (options: RequestOptionsProps = {}) {
-    if (this.countryId && this.conditions.length > 0) {
+    if (this.countryId && this.conditions) {
       throw new Error('The `where` function is not compatible with countries(countryId). Example ordering.countries().where(contitions).get()')
     }
     const url = '/countries' + (this.countryId ? `/${this.countryId}` : '')

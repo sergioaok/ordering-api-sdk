@@ -25,7 +25,7 @@ export class ApiLanguage extends ApiBase implements ApiBaseInterface {
    * @param {RequestOptionsProps} options Params, headers and other options
    */
   async get (options: RequestOptionsProps = {}) {
-    if (this.languageId && this.conditions.length > 0) {
+    if (this.languageId && this.conditions) {
       throw new Error('The `where` function is not compatible with languages(languageId). Example ordering.languages().where(contitions).get()')
     }
     const url = '/languages' + (this.languageId ? `/${this.languageId}` : '')

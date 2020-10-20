@@ -28,7 +28,7 @@ export class ApiCart extends ApiBase implements ApiBaseInterface {
    * @param {RequestOptionsProps} options Params, headers and other options
    */
   async get (options: RequestOptionsProps = {}) {
-    if (this.cartId && this.conditions.length > 0) {
+    if (this.cartId && this.conditions) {
       throw new Error('The `where` function is not compatible with carts(cartId). Example ordering.carts().where(contitions).get()')
     }
     const url = '/carts' + (this.cartId ? `/${this.cartId}` : '')
