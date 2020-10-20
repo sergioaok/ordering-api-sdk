@@ -83,7 +83,7 @@ var ApiOrderMessage = /** @class */ (function (_super) {
                         if (!this.orderId) {
                             throw new Error('You must provide the `orderId` param. Example ordering.orders(orderId).messages(messageId?).get()');
                         }
-                        if (this.messageId && this.conditions.length > 0) {
+                        if (this.messageId && this.conditions) {
                             throw new Error('The `where` function is not compatible with businesses(orderId).messages(messageId). Example ordering.orders(orderId).messages().where(contitions).get()');
                         }
                         url = "/orders/" + this.orderId + "/messages" + (this.messageId ? "/" + this.messageId : '');
