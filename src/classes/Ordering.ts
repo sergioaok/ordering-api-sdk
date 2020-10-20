@@ -149,8 +149,8 @@ export class Ordering {
     /**
      * Parse conditions to filter api data
      */
-    if (conditions?.length > 0) {
-      _query.where = typeof options.conditions === 'object' ? JSON.stringify(options.conditions) : options.conditions
+    if (conditions) {
+      _query.where = typeof conditions === 'object' ? JSON.stringify(conditions) : conditions
     }
     /**
      * Parse conditions to filter api data

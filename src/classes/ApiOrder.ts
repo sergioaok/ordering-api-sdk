@@ -9,9 +9,9 @@ import { ApiOrderMessage } from './ApiOrderMessage'
  * Class to orders api control
  */
 export class ApiOrder extends ApiBase implements ApiBaseInterface {
-  private orderId: number
+  private orderId: number | string
 
-  constructor (ordering: Ordering, orderId: number) {
+  constructor (ordering: Ordering, orderId: number | string) {
     super(ordering)
     this.orderId = orderId
   }
@@ -90,5 +90,18 @@ export class ApiOrder extends ApiBase implements ApiBaseInterface {
       throw new Error('`orderId` must be a number to use API messages. Example: ordering.orders(orderId).messages().get()')
     }
     return new ApiOrderMessage(this.ordering, this.orderId, messagesId)
+  }
+
+  /**
+   * Reorder an order by orderId
+   * @param {RequestOptionsProps} options Params, headers and other options
+   */
+  async reorder (options: RequestOptionsProps = {}) {
+    if (!this.orderId) {
+      throw new Error('`orderId` is require to delete. Example: ordering.orders(orderId).reorder()')
+    }
+    const url = `/orders/${this.orderId}/reorder`
+    const response: ApiResponse = await this.makeRequest('POST', url, undefined, Order, options)
+    return response
   }
 }

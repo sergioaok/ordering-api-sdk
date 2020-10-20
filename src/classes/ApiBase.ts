@@ -22,7 +22,7 @@ export interface ConditionInterface {
 export class ApiBase {
   public ordering: Ordering
   public attributes: string[] = []
-  public conditions: ConditionInterface[] = []
+  public conditions: any
   public query: any = {}
   public mode: string
 
@@ -43,8 +43,8 @@ export class ApiBase {
    * Conditions to get from Ordering API
    * @param conditions List of conditions
    */
-  public where (conditions: ConditionInterface[]) {
-    this.conditions = this.conditions.concat(conditions)
+  public where (conditions: any) {
+    this.conditions = conditions
     return this
   }
 
