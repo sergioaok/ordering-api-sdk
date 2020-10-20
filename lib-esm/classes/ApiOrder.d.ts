@@ -9,7 +9,7 @@ import { ApiOrderMessage } from './ApiOrderMessage';
  */
 export declare class ApiOrder extends ApiBase implements ApiBaseInterface {
     private orderId;
-    constructor(ordering: Ordering, orderId: number);
+    constructor(ordering: Ordering, orderId: number | string);
     /**
      * Replace current modelId
      * @param id ID to replace current api modelId
@@ -41,4 +41,9 @@ export declare class ApiOrder extends ApiBase implements ApiBaseInterface {
      * @param {number} orderId Order id is optional
      */
     messages(messagesId: number): ApiOrderMessage;
+    /**
+     * Reorder an order by orderId
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    reorder(options?: RequestOptionsProps): Promise<ApiResponse>;
 }
