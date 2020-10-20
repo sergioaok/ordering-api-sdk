@@ -101,7 +101,7 @@ export class ApiOrder extends ApiBase implements ApiBaseInterface {
       throw new Error('`orderId` is require to delete. Example: ordering.orders(orderId).reorder()')
     }
     const url = `/orders/${this.orderId}/reorder`
-    const response: ApiResponse = await this.makeRequest('POST', url, undefined, Order, options)
+    const response: ApiResponse = await this.makeRequest('POST', url, undefined, undefined, options)
     return response
   }
 }
