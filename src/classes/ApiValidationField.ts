@@ -64,10 +64,10 @@ export class ApiValidationField extends ApiBase implements ApiBaseInterface {
    * Get only fields for custom
    */
   toType (type: string) {
-    this.conditions.push({
+    this.conditions = [{
       attribute: 'validate',
       value: type
-    })
+    }]
     return this
   }
 
