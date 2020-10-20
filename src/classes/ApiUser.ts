@@ -52,7 +52,7 @@ export class ApiUser extends ApiBase implements ApiBaseInterface {
    * @param {RequestOptionsProps} options Params, headers and other options
    */
   async get (options: RequestOptionsProps = {}) {
-    if (this.userId && this.conditions.length > 0) {
+    if (this.userId && this.conditions) {
       throw new Error('The `where` function is not compatible with users(userId). Example ordering.users().where(contitions).get()')
     }
     const url = '/users' + (this.userId ? `/${this.userId}` : '')

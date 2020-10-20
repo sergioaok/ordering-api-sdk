@@ -34,7 +34,7 @@ export class ApiCity extends ApiBase implements ApiBaseInterface {
     if (!this.countryId) {
       throw new Error('You must provide the `countryId` param. Example ordering.countries(countryId).cities(cityId?).get()')
     }
-    if (this.cityId && this.conditions.length > 0) {
+    if (this.cityId && this.conditions) {
       throw new Error('The `where` function is not compatible with countries(countryId).cities(cityId). Example ordering.countries(countryId).cities().where(contitions).get()')
     }
     const url = `/countries/${this.countryId}/cities` + (this.cityId ? `/${this.cityId}` : '')

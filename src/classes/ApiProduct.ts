@@ -36,7 +36,7 @@ export class ApiProduct extends ApiBase implements ApiBaseInterface {
     if (!this.businessId) {
       throw new Error('You must provide the `businessId` param. Example ordering.businesses(businessId).categories(categoryId).products(productId?).get()')
     }
-    if (this.productId && this.conditions.length > 0) {
+    if (this.productId && this.conditions) {
       throw new Error('The `where` function is not compatible with businesses(businessId).categories(categoryId).products(productId). Example ordering.businesses(businessId).categories(categoryId).products().where(contitions).get()')
     }
     const url = `/business/${this.businessId}/categories/${this.categoryId}/products` + (this.productId ? `/${this.productId}` : '')

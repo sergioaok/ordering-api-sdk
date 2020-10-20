@@ -34,7 +34,7 @@ export class ApiAddress extends ApiBase implements ApiBaseInterface {
     if (!this.userId) {
       throw new Error('You must provide the `userId` param. Example ordering.users(userId).addresses(addressId?).get()')
     }
-    if (this.addressId && this.conditions.length > 0) {
+    if (this.addressId && this.conditions) {
       throw new Error('The `where` function is not compatible with users(userId).addresses(addressId). Example ordering.users(userId).addresses().where(contitions).get()')
     }
     const url = `/users/${this.userId}/addresses` + (this.addressId ? `/${this.addressId}` : '')

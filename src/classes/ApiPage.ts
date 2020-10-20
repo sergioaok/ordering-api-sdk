@@ -28,7 +28,7 @@ export class ApiPage extends ApiBase implements ApiBaseInterface {
    * @param {RequestOptionsProps} options Params, headers and other options
    */
   async get (options: RequestOptionsProps = {}) {
-    if (this.pageId && this.conditions.length > 0) {
+    if (this.pageId && this.conditions) {
       throw new Error('The `where` function is not compatible with pages(pageId). Example ordering.pages().where(contitions).get()')
     }
     const url = '/pages' + (this.pageId ? `/${this.pageId}` : '')

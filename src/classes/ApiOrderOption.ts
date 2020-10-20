@@ -31,7 +31,7 @@ export class ApiOrderOption extends ApiBase implements ApiBaseInterface {
     if (this.orderOptionId) {
       throw new Error('ordering.orderOptions(orderOptionId).get() is not implemented')
     }
-    if (this.orderOptionId && this.conditions.length > 0) {
+    if (this.orderOptionId && this.conditions) {
       throw new Error('The `where` function is not compatible with countries(orderOptionId). Example ordering.orderOptions().where(contitions).get()')
     }
     const url = '/order_options'

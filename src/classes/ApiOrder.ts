@@ -29,7 +29,7 @@ export class ApiOrder extends ApiBase implements ApiBaseInterface {
    * @param {RequestOptionsProps} options Params, headers and other options
    */
   async get (options: RequestOptionsProps = {}) {
-    if (this.orderId && this.conditions.length > 0) {
+    if (this.orderId && this.conditions) {
       throw new Error('The `where` function is not compatible with orders(orderId). Example ordering.orders().where(contitions).get()')
     }
     const url = '/orders' + (this.orderId ? `/${this.orderId}` : '')
