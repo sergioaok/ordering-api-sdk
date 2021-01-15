@@ -13,6 +13,7 @@ import { ApiPage } from './ApiPage'
 import { ApiCountry } from './ApiCountry'
 import { ApiOrderOption } from './ApiOrderOption'
 import { ApiCart } from './ApiCart'
+import { ApiPaymentCards } from './ApiPaymentCards'
 
 interface SettingProps {
   url?: string
@@ -119,6 +120,10 @@ export class Ordering {
 
   carts (cartId: number | string) {
     return new ApiCart(this, cartId)
+  }
+
+  paymentCards (bussinessId: number | string, userId: number | string, cardId: number | string) {
+    return new ApiPaymentCards(this, bussinessId, userId, cardId)
   }
 
   system () {
