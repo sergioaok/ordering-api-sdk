@@ -12,6 +12,7 @@ import { ApiPage } from './ApiPage';
 import { ApiCountry } from './ApiCountry';
 import { ApiOrderOption } from './ApiOrderOption';
 import { ApiCart } from './ApiCart';
+import { ApiPaymentCards } from './ApiPaymentCards';
 interface SettingProps {
     url?: string;
     version?: string;
@@ -47,6 +48,7 @@ export declare class Ordering {
     countries(countryId: number): ApiCountry;
     orderOptions(orderOptionId: number): ApiOrderOption;
     carts(cartId: number | string): ApiCart;
+    paymentCards(bussinessId: number | string, userId: number | string, cardId: number | string): ApiPaymentCards;
     system(): ApiSystem;
     getRequestProps(options: RequestOptionsProps): [string, any];
     makeRequest(method: string, url: string, data: any, options: any): Promise<unknown>;
