@@ -125,6 +125,10 @@ export class Order extends Model implements ModelProps {
   }
 
   get total () {
+<<<<<<< HEAD
     return this.subtotal + this.serviceFee + this.deliveryFee + (this.tax_type === 2 ? this.totalTax : 0) - this.discount + this.driver_tip
+=======
+    return this.subtotal + this.serviceFee + this.deliveryFee + this.driver_tip + (this.tax_type === 2 ? this.totalTax : 0) - this.discount
+>>>>>>> 21e947782bc5c54561f8887f7b24cb64c2b0db9f
   }
 }
