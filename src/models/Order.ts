@@ -117,14 +117,14 @@ export class Order extends Model implements ModelProps {
   }
 
   get serviceFee (): number {
-    return this.subtotal * (this.service_fee / 100)
+    return (this.subtotal - this.discount) * (this.service_fee / 100)
   }
 
   get totalTax (): number {
-    return this.subtotal * (this.tax / 100)
+    return (this.subtotal * this.tax) / (this.tax + 100)
   }
 
   get total () {
-    return this.subtotal + this.serviceFee + this.deliveryFee + this.driver_tip + (this.tax_type === 2 ? this.totalTax : 0) - this.discount
+    return this.subtotal + this.serviceFee + this.deliveryFee + (this.tax_type === 2 ? this.totalTax : 0) - this.discount + this.driver_tip
   }
 }
