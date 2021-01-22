@@ -81,6 +81,13 @@ export declare class ApiUser extends ApiBase implements ApiBaseInterface {
      */
     authFacebook(facebook: FacebookProps, options?: RequestOptionsProps): Promise<ApiResponse>;
     /**
+     * Return api alert a user by userId
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    alerts(): {
+        get: (options?: RequestOptionsProps) => Promise<ApiResponse>;
+    };
+    /**
      * Return the api addresses
      * @param {number} addressId Address id is optional
      */
