@@ -123,8 +123,13 @@ export class Order extends Model implements ModelProps {
   get totalTax (): number {
     return (this.subtotal * this.tax) / (this.tax + 100)
   }
+  
+  get totalDriverTip (): number {
+    return (this.subtotal - this.tax) * (this.driver_tip / 100)
+  }
 
   get total () {
-    return this.subtotal + this.serviceFee + this.deliveryFee + (this.tax_type === 2 ? this.totalTax : 0) - this.discount + this.driver_tip
+    return this.subtotal + this.serviceFee + this.deliveryFee + this.totalDriverTip + (this.tax_type === 2 ? this.totalTax : 0) - this.discount
   }
+
 }
