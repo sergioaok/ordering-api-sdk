@@ -20,6 +20,7 @@ interface SettingProps {
     language?: string;
     accessToken?: string;
     apiKey?: string;
+    appId?: string;
 }
 export declare class Ordering {
     private url;
@@ -28,11 +29,13 @@ export declare class Ordering {
     private language;
     private accessToken;
     private apiKey;
-    constructor({ url, version, project, language, accessToken, apiKey }?: SettingProps);
+    private appId;
+    constructor({ url, version, project, language, accessToken, apiKey, appId }?: SettingProps);
     get root(): string;
     get systemRoot(): string;
     setAccessToken(accessToken: string): this;
     setApiKey(apiKey: string): this;
+    setAppId(appId: string): this;
     setUrl(url: string): this;
     setProject(project: string): this;
     setVersion(version: string): this;
