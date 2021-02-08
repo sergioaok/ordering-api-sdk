@@ -22,6 +22,7 @@ interface SettingProps {
   language?: string
   accessToken?: string
   apiKey?: string
+  appId?: string
 }
 
 export class Ordering {
@@ -31,13 +32,15 @@ export class Ordering {
   private language: string
   private accessToken: string
   private apiKey: string
-  constructor ({ url = 'https://apiv4.ordering.co', version = 'v400', project = 'demo', language = 'en', accessToken = null, apiKey = null }: SettingProps = {}) {
+  private appId: string
+  constructor ({ url = 'https://apiv4.ordering.co', version = 'v400', project = 'demo', language = 'en', accessToken = null, apiKey = null, appId = null }: SettingProps = {}) {
     this.url = url
     this.version = version
     this.project = project
     this.language = language
     this.accessToken = accessToken
     this.apiKey = apiKey
+    this.appId = appId
   }
 
   get root () {
@@ -55,6 +58,11 @@ export class Ordering {
 
   setApiKey (apiKey: string) {
     this.apiKey = apiKey
+    return this
+  }
+
+  setAppId (appId: string) {
+    this.appId = appId
     return this
   }
 
@@ -172,6 +180,9 @@ export class Ordering {
     }
     if (this.apiKey) {
       authHeaders['X-Api-Key'] = this.apiKey
+    }
+    if (this.appId) {
+      authHeaders['X-APP-X'] = this.appId
     }
     /**
      * Create Option Request
