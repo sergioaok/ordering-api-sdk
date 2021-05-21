@@ -79,7 +79,7 @@ var ApiUser = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (this.userId && this.conditions.length > 0) {
+                        if (this.userId && this.conditions) {
                             throw new Error('The `where` function is not compatible with users(userId). Example ordering.users().where(contitions).get()');
                         }
                         url = '/users' + (this.userId ? "/" + this.userId : '');
@@ -252,6 +252,59 @@ var ApiUser = /** @class */ (function (_super) {
                 }
             });
         });
+    };
+    /**
+     * Login with Google
+     * @param {GoogleProps} google access_token to login with Facebook
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    ApiUser.prototype.authGoogle = function (google, options) {
+        if (options === void 0) { options = {}; }
+        return __awaiter(this, void 0, void 0, function () {
+            var url, response, _a, error, result;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        url = '/auth/google';
+                        return [4 /*yield*/, this.makeRequest('POST', url, google, User, options)];
+                    case 1:
+                        response = _b.sent();
+                        _a = response.content, error = _a.error, result = _a.result;
+                        if (!error) {
+                            this.userId = result.id;
+                        }
+                        return [2 /*return*/, response];
+                }
+            });
+        });
+    };
+    /**
+     * Return api alert a user by userId
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    ApiUser.prototype.alerts = function () {
+        var _this = this;
+        if (!this.userId) {
+            throw new Error('`userId` is require get alerts. Example: ordering.users(userId).alerts().get()');
+        }
+        return {
+            get: function (options) {
+                if (options === void 0) { options = {}; }
+                return __awaiter(_this, void 0, void 0, function () {
+                    var url, response;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                url = "/users/" + this.userId + "/alerts";
+                                return [4 /*yield*/, this.makeRequest('GET', url, undefined, undefined, options)];
+                            case 1:
+                                response = _a.sent();
+                                return [2 /*return*/, response];
+                        }
+                    });
+                });
+            }
+        };
     };
     /**
      * Return the api addresses

@@ -20,6 +20,9 @@ interface ResetProps {
 interface FacebookProps {
     access_token?: string;
 }
+interface GoogleProps {
+    access_token?: string;
+}
 interface LogoutProps {
     token_notification?: string;
 }
@@ -80,6 +83,19 @@ export declare class ApiUser extends ApiBase implements ApiBaseInterface {
      * @param {RequestOptionsProps} options Params, headers and other options
      */
     authFacebook(facebook: FacebookProps, options?: RequestOptionsProps): Promise<ApiResponse>;
+    /**
+     * Login with Google
+     * @param {GoogleProps} google access_token to login with Facebook
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    authGoogle(google: GoogleProps, options?: RequestOptionsProps): Promise<ApiResponse>;
+    /**
+     * Return api alert a user by userId
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    alerts(): {
+        get: (options?: RequestOptionsProps) => Promise<ApiResponse>;
+    };
     /**
      * Return the api addresses
      * @param {number} addressId Address id is optional

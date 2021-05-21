@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1e4b70f0-ed16-47e2-a562-29f58fe5ff2e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/_bundles/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_bundles/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_bundles/ordering-sdk.js" beforeDir="false" afterPath="$PROJECT_DIR$/_bundles/ordering-sdk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_bundles/ordering-sdk.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/_bundles/ordering-sdk.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiAddress.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiAddress.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiAddress.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiAddress.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiBase.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiBase.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiBase.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiBase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiBase.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiBase.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiBusiness.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiBusiness.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiBusiness.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiBusiness.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiBusiness.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiBusiness.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiConfig.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiConfig.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiLanguage.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiLanguage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiLanguage.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiLanguage.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiOrder.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiOrder.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiOrder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiOrder.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiOrder.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiResponse.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiResponse.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiResponse.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiResponse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiResponse.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiResponse.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiTranslation.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiTranslation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiTranslation.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiTranslation.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiUser.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiUser.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiUser.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiUser.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiValidationField.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiValidationField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/ApiValidationField.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/ApiValidationField.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/Ordering.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/Ordering.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/Ordering.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/Ordering.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/classes/Ordering.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/classes/Ordering.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/models/Order.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/models/Order.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/models/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/models/Order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib-esm/models/Order.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib-esm/models/Order.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiAddress.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiAddress.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiAddress.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiAddress.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiBase.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiBase.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiBase.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiBase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiBase.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiBase.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiBusiness.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiBusiness.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiBusiness.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiBusiness.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiBusiness.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiBusiness.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiConfig.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiConfig.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiLanguage.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiLanguage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiLanguage.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiLanguage.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiOrder.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiOrder.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiOrder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiOrder.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiOrder.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiResponse.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiResponse.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiResponse.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiResponse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiResponse.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiResponse.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiTranslation.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiTranslation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiTranslation.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiTranslation.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiUser.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiUser.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiUser.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiUser.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiValidationField.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiValidationField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/ApiValidationField.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/ApiValidationField.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/Ordering.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/Ordering.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/Ordering.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/Ordering.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classes/Ordering.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classes/Ordering.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/Order.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Order.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/Order.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Order.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/ApiUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/ApiUser.ts" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1srnEVOFGGggSKlyEuA68xtSOtf" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1e4b70f0-ed16-47e2-a562-29f58fe5ff2e" name="Default Changelist" comment="" />
+      <created>1621639464215</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621639464215</updated>
+      <workItem from="1621639465379" duration="378000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
