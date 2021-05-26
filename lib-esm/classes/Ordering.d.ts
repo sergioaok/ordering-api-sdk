@@ -6,9 +6,13 @@ import { ApiUser } from './ApiUser';
 import { ApiValidationField } from './ApiValidationField';
 import { ApiOrder } from './ApiOrder';
 import { ApiBusiness } from './ApiBusiness';
-import { AxiosRequestConfig } from 'axios';
 import { ApiConfig } from './ApiConfig';
 import { ApiTranslation } from './ApiTranslation';
+import { ApiPage } from './ApiPage';
+import { ApiCountry } from './ApiCountry';
+import { ApiOrderOption } from './ApiOrderOption';
+import { ApiCart } from './ApiCart';
+import { ApiPaymentCards } from './ApiPaymentCards';
 interface SettingProps {
     url?: string;
     version?: string;
@@ -16,6 +20,7 @@ interface SettingProps {
     language?: string;
     accessToken?: string;
     apiKey?: string;
+    appId?: string;
 }
 export declare class Ordering {
     private url;
@@ -24,11 +29,17 @@ export declare class Ordering {
     private language;
     private accessToken;
     private apiKey;
-    constructor({ url, version, project, language, accessToken, apiKey }?: SettingProps);
+    private appId;
+    constructor({ url, version, project, language, accessToken, apiKey, appId }?: SettingProps);
     get root(): string;
     get systemRoot(): string;
     setAccessToken(accessToken: string): this;
     setApiKey(apiKey: string): this;
+    setAppId(appId: string): this;
+    setUrl(url: string): this;
+    setProject(project: string): this;
+    setVersion(version: string): this;
+    setLanguage(language: string): this;
     users(userId?: number): ApiUser;
     orders(orderId?: number): ApiOrder;
     configs(configId?: number): ApiConfig;
@@ -36,8 +47,14 @@ export declare class Ordering {
     validationFields(fieldId: number): ApiValidationField;
     languages(languageId: number): ApiLanguage;
     translations(translationId: number): ApiTranslation;
+    pages(pageId: number): ApiPage;
+    countries(countryId: number): ApiCountry;
+    orderOptions(orderOptionId: number): ApiOrderOption;
+    carts(cartId: number | string): ApiCart;
+    paymentCards(bussinessId: number | string, userId: number | string, cardId: number | string): ApiPaymentCards;
     system(): ApiSystem;
-    getRequestProps(options: RequestOptionsProps): [string, AxiosRequestConfig];
+    getRequestProps(options: RequestOptionsProps): [string, any];
+    makeRequest(method: string, url: string, data: any, options: any): Promise<unknown>;
     get(path: string, options?: RequestOptionsProps): Promise<ApiResponse>;
     post(path: string, data?: any, options?: RequestOptionsProps): Promise<ApiResponse>;
     put(path: string, data?: any, options?: RequestOptionsProps): Promise<ApiResponse>;
