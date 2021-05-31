@@ -254,6 +254,31 @@ var ApiUser = /** @class */ (function (_super) {
         });
     };
     /**
+     * Login with Google
+     * @param {GoogleProps} google access_token to login with Facebook
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    ApiUser.prototype.authGoogle = function (google, options) {
+        if (options === void 0) { options = {}; }
+        return __awaiter(this, void 0, void 0, function () {
+            var url, response, _a, error, result;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        url = '/auth/google';
+                        return [4 /*yield*/, this.makeRequest('POST', url, google, User, options)];
+                    case 1:
+                        response = _b.sent();
+                        _a = response.content, error = _a.error, result = _a.result;
+                        if (!error) {
+                            this.userId = result.id;
+                        }
+                        return [2 /*return*/, response];
+                }
+            });
+        });
+    };
+    /**
      * Return api alert a user by userId
      * @param {RequestOptionsProps} options Params, headers and other options
      */
