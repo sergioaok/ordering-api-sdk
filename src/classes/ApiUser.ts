@@ -25,6 +25,10 @@ interface FacebookProps {
   access_token?: string
 }
 
+interface GoogleProps {
+  access_token?: string
+}
+
 interface LogoutProps {
   token_notification?: string
 }
@@ -144,6 +148,21 @@ export class ApiUser extends ApiBase implements ApiBaseInterface {
   async authFacebook (facebook: FacebookProps, options: RequestOptionsProps = {}) {
     const url = '/auth/facebook'
     const response: ApiResponse = await this.makeRequest('POST', url, facebook, User, options)
+    const { content: { error, result } } = response
+    if (!error) {
+      this.userId = result.id
+    }
+    return response
+  }
+
+  /**
+   * Login with Google
+   * @param {GoogleProps} google access_token to login with Facebook
+   * @param {RequestOptionsProps} options Params, headers and other options
+   */
+  async authGoogle (google: GoogleProps, options: RequestOptionsProps = {}) {
+    const url = '/auth/google'
+    const response: ApiResponse = await this.makeRequest('POST', url, google, User, options)
     const { content: { error, result } } = response
     if (!error) {
       this.userId = result.id
