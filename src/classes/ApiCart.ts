@@ -126,6 +126,17 @@ export class ApiCart extends ApiBase implements ApiBaseInterface {
   }
 
   /**
+   * Update payment method to cart
+   * @param {any} paymethod request data
+   * @param {RequestOptionsProps} options Params, headers and other options
+   */
+  async changePaymethod (paymethod: any, options: RequestOptionsProps = {}) {
+    const url = '/carts/change_paymethod'
+    const response: ApiResponse = await this.makeRequest('POST', url, paymethod, Cart, options)
+    return response
+  }
+
+  /**
    * Place cart to cart if cartId
    * @param {any} placeData Place data
    * @param {RequestOptionsProps} options Params, headers and other options
