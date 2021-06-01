@@ -249,6 +249,27 @@ var ApiCart = /** @class */ (function (_super) {
         });
     };
     /**
+     * Update payment method to cart
+     * @param {any} paymethod request data
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    ApiCart.prototype.changePaymethod = function (paymethod, options) {
+        if (options === void 0) { options = {}; }
+        return __awaiter(this, void 0, void 0, function () {
+            var url, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        url = '/carts/change_paymethod';
+                        return [4 /*yield*/, this.makeRequest('POST', url, paymethod, Cart, options)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, response];
+                }
+            });
+        });
+    };
+    /**
      * Place cart to cart if cartId
      * @param {any} placeData Place data
      * @param {RequestOptionsProps} options Params, headers and other options
