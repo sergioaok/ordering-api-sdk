@@ -61,6 +61,12 @@ export declare class ApiCart extends ApiBase implements ApiBaseInterface {
      */
     changeDriverTip(driverTip: any, options?: RequestOptionsProps): Promise<ApiResponse>;
     /**
+     * Update payment method to cart
+     * @param {any} paymethod request data
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    changePaymethod(paymethod: any, options?: RequestOptionsProps): Promise<ApiResponse>;
+    /**
      * Place cart to cart if cartId
      * @param {any} placeData Place data
      * @param {RequestOptionsProps} options Params, headers and other options
