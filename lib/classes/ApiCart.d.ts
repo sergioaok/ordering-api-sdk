@@ -74,8 +74,13 @@ export declare class ApiCart extends ApiBase implements ApiBaseInterface {
     place(placeData: any, options?: RequestOptionsProps): Promise<ApiResponse>;
     /**
      * Confirm cart to cart if cartId
-     * @param {any} placeData Place data
      * @param {RequestOptionsProps} options Params, headers and other options
      */
     confirm(options?: RequestOptionsProps): Promise<ApiResponse>;
+    /**
+     * Confirm cart to cart if cartId and has payload
+     * @param {any} confirmData Confirm data
+     * @param {RequestOptionsProps} options Params, headers and other options
+     */
+    confirmWithData(confirmData: any, options?: RequestOptionsProps): Promise<ApiResponse>;
 }
