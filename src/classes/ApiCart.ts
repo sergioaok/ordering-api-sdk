@@ -144,12 +144,12 @@ export class ApiCart extends ApiBase implements ApiBaseInterface {
    * @param {any} placeData Place data
    * @param {RequestOptionsProps} options Params, headers and other options
    */
-  async confirm (options: RequestOptionsProps = {}) {
+  async confirm (confirmData: any, options: RequestOptionsProps = {}) {
     if (!this.cartId) {
       throw new Error('The `cartId` is required to use ordering.carts(cartId).confirm(options).')
     }
     const url = `/carts/${this.cartId}/confirm`
-    const response: ApiResponse = await this.makeRequest('POST', url, {}, Cart, options)
+    const response: ApiResponse = await this.makeRequest('POST', url, confirmData, Cart, options)
     return response
   }
 }
