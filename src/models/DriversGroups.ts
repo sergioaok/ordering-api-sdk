@@ -6,6 +6,7 @@ export interface DriversGroupsProps {
   name?: string;
   drivers?: object;
   enabled?: boolean;
+  [metadata: string]: any
 }
 
 export class DriversGroups extends Model implements ModelProps {
@@ -13,11 +14,13 @@ export class DriversGroups extends Model implements ModelProps {
   public name: string;
   public drivers: object;
   public enabled: boolean;
+  [metadata: string]: any
+
 
   constructor(driver: DriversGroupsProps = {}, api: TypeApi) {
     super(driver, api, ["business"]);
     Object.entries(driver).map(([key, value]) => {
-      this[key] = value;
-    });
+        this[key]  = value
+      })
   }
 }
