@@ -9,6 +9,8 @@ import { Order, OrderProps } from './models/Order'
 import { ApiOrder } from './classes/ApiOrder'
 import { Business, BusinessProps } from './models/Business'
 import { ApiBusiness } from './classes/ApiBusiness'
+import { ApiDriversGroups } from './classes/ApiDriversGroups'
+import { DriversGroups, DriversGroupsProps } from './models/DriversGroups'
 import { ValidationField, ValidationFieldProps } from './models/ValidationField'
 import { ApiValidationField } from './classes/ApiValidationField'
 import { Language, LanguageProps } from './models/Language'
@@ -58,6 +60,7 @@ export {
   ApiCart,
   ApiOrderOption,
   ApiOrderMessage,
+  ApiDriversGroups,
   // Models
   Model,
   User,
@@ -93,5 +96,7 @@ export {
   OrderOption,
   OrderOptionProps,
   OrderMessage,
-  OrderMessageProps
+  OrderMessageProps,
+  DriversGroups,
+  DriversGroupsProps,
 }
